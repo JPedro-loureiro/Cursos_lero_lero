@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/cor_erro_formulario.css">
+
+    <title>Inserir matrícula - Cursos Lero Lero</title>
+
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+        <a class="navbar-brand h4" href="index.jsp">Cursos Lero Lero</a>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+              <a class="nav-link" href="sobre_nos.html">Sobre nós </a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="instrutores.jsp">Instrutores</a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="comentarios.html">Comentários </a>
+            </li>
+
+            <li class="nav-item disabled">
+              <a class="nav-link" href="tabelas.html">Tabelas </a>
+            </li>
+          </ul>
+
+          <a class="btn btn-primary" href="cadastro.html" role="button">Cadastre-se</a>
+          <a class="nav-link" href="nota.html">Login <span class="sr-only">(current)</span></a>
+
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid py-5">
+    
+      <div class="myform form">
+    
+        <div class="container pt-5">
+          <div class="text-center pt-5">
+            <h1 class="text-primary">Nova matrícula</h1>
+          </div>
+        </div>
+
+        <form class="py-3" id="form-mat" method="POST">
+
+          <div class="form-group">
+            <label for="Campo_cadastro">id da turma</label>
+            <input type="text" name="turmas_id" class="form-control turmas_id" id="turmas_id" 
+            placeholder="(Obrigatório)">
+          </div>
+
+          <div class="form-group">
+            <label for="Campo_cadastro">id do aluno</label>
+            <input type="text" name="alunos_id" class="form-control alunos_id" id="alunos_id" 
+            placeholder="(Obrigatório)">
+          </div>
+
+          <div class="form-group">
+            <label for="Campo_cadastro">Data da matrícula</label>
+            <input type="date" class="form-control data_matricula" id="data_matricula" 
+            name="data_matricula">
+          </div>
+
+          <div class="form-group">
+            <label for="Campo_cadastro">Nota</label>
+            <input type="text" name="nota" class="form-control nota" id="nota" 
+            placeholder="(Opcional)">
+          </div>
+
+          <div class="col-md-12 text-center mb-3">
+            <button type="submit" class=" btn btn-primary tx-tfm">Inserir no sistema</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="navbar navbar-fixed-bottom bg-secondary text-white">
+      <div class="footer-copyright mx-auto py-3">2020 Caíque e João Pedro
+      </div>
+    </footer>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/validate_traducao.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#form-mat").validate({
+          rules: {
+
+            turmas_id: { required: true, minlength: 1, maxlength: 10, number: true },
+
+            alunos_id: { required: true, minlength: 1, maxlength: 11, number: true },
+
+            nota: { maxlength: 11, digits: true }
+
+          }, 
+          messages: {
+
+            turmas_id: { required: "Obrigatório", 
+            minlength: "1 caractere no mínimo",
+            maxlength: "10 caracteres no máximo"},
+
+            alunos_id: { required: "Obrigatório",
+            minlength: "1 caractere no mínimo",
+            maxlength: "11 caracteres no máximo"},
+
+            nota: {maxlength: "11 caracteres no máximo"}
+          },
+
+          submitHandler: function (form) {
+            form.submit();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
