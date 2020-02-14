@@ -5,10 +5,22 @@
  */
 package dao;
 
+import PageServelts.ServletInserirMatricula;
+import static java.lang.Float.parseFloat;
+import static java.lang.Integer.parseInt;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Aluno;
 import model.Matricula;
 import util.DataBaseUtil;
 
@@ -38,5 +50,32 @@ public class MatriculaDao {
         } catch (SQLException e){
             e.printStackTrace();
         }
+    }
+    
+    public List<Matricula> getAllMatriculas() {
+        List<Matricula> listaDeMatriculas = new ArrayList<Matricula>();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from administrador");
+            while (rs.next()) {
+                Matricula matricula = new Matricula();
+                matricula.setTurma_id(parseInt(rs.getString("turmas_id")));
+                matricula.setAluno_id(parseInt(rs.getString("alunos_id")));
+                
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    matricula.setData_matricula(format.parse(rs.getString("data_matricula")));
+                } catch (ParseException ex) {
+                    Logger.getLogger(ServletInserirMatricula.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                matricula.setNota(parseFloat(rs.getString("nota")));
+                listaDeMatriculas.add(matricula);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaDeMatriculas;
     }
 }

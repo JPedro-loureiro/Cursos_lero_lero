@@ -6,9 +6,12 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import model.Administrador;
 import util.DataBaseUtil;
 
@@ -35,5 +38,23 @@ public class AdministradorDao {
         } catch (SQLException e){
             e.printStackTrace();
         }
+    }
+    
+    public List<Administrador> getAllAdmins() {
+        List<Administrador> listaDeAdmins = new ArrayList<Administrador>();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from administrador");
+            while (rs.next()) {
+                Administrador admin = new Administrador();
+                admin.setNome(rs.getString("nome"));
+                admin.setLogin(rs.getString("login"));
+                listaDeAdmins.add(admin);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaDeAdmins;
     }
 }

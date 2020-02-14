@@ -7,7 +7,12 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import model.Administrador;
 import model.Aluno;
 import util.DataBaseUtil;
 /**
@@ -38,12 +43,38 @@ public class AlunoDao {
             preparedStatement.setString(7, aluno.getEndereco());
             preparedStatement.setString(8, aluno.getCidade());
             preparedStatement.setString(9, aluno.getBairro());
-            preparedStatement.setString(10, aluno.getBairro());
+            preparedStatement.setString(10, aluno.getCep());
             preparedStatement.setString(11, "N");
             
             preparedStatement.executeUpdate();
         } catch (SQLException e){
             e.printStackTrace();
         }
+    }
+    
+    public List<Aluno> getAllAlunos() {
+        List<Aluno> listaDeAlunos = new ArrayList<Aluno>();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from administrador");
+            while (rs.next()) {
+                Aluno aluno = new Aluno();
+                aluno.setCpf(rs.getString("cpf"));
+                aluno.setNome(rs.getString("nome"));
+                aluno.setEmail(rs.getString("email"));
+                aluno.setCelular(rs.getString("celular"));
+                aluno.setLogin(rs.getString("login"));
+                aluno.setEndereco(rs.getString("endereco"));
+                aluno.setCidade(rs.getString("cidade"));
+                aluno.setBairro(rs.getString("bairro"));
+                aluno.setCep(rs.getString("cep"));
+                aluno.setAprovado(rs.getString("aprovado"));
+                listaDeAlunos.add(aluno);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaDeAlunos;
     }
 }

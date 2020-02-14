@@ -5,9 +5,15 @@
  */
 package dao;
 
+import static java.lang.Integer.parseInt;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import model.Aluno;
 import model.Instrutor;
 import util.DataBaseUtil;
 
@@ -39,5 +45,26 @@ public class InstrutorDao {
         } catch (SQLException e){
             e.printStackTrace();
         }
+    }
+    
+    public List<Instrutor> getAllInstrutores() {
+        List<Instrutor> listaDeInstrutores = new ArrayList<Instrutor>();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from instrutores");
+            while (rs.next()) {
+                Instrutor instrutor = new Instrutor();
+                instrutor.setNome(rs.getString("nome"));
+                instrutor.setEmail(rs.getString("email"));
+                instrutor.setLogin(rs.getString("login"));
+                instrutor.setValor_hora(parseInt(rs.getString("valor_hora")));
+                instrutor.setExperiencia(rs.getString("experiencia"));
+                listaDeInstrutores.add(instrutor);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaDeInstrutores;
     }
 }

@@ -38,8 +38,8 @@ public class ServletInserirAdmin extends HttpServlet {
         novo_admin.setLogin(request.getParameter("login"));
         novo_admin.setSenha(request.getParameter("password"));
         
-        PrintWriter out = response.getWriter();
-        out.println("Teste classe: " + novo_admin.getNome());
+        /*PrintWriter out = response.getWriter();
+        out.println("Teste classe: " + novo_admin.getNome());*/
         
         AdministradorDao adminDao = new AdministradorDao();
         adminDao.addAdminstrador(novo_admin);
