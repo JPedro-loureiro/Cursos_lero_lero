@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Administrador;
 import util.DataBaseUtil;
 
@@ -86,5 +88,25 @@ public class AdministradorDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    
+    public boolean checkAdminLogin(String login, String senha){
+        try {
+            Statement stm = connection.createStatement();
+            ResultSet rs = stm.executeQuery("select senha from administrador where login='" + login +"'");
+            
+            String correctPassword;
+            while(rs.next()){
+                 correctPassword = rs.getString("login");
+                
+                if(correctPassword.equals(senha)){
+                return true;
+                }
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AdministradorDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }

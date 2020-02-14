@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Aluno;
 import util.DataBaseUtil;
 /**
@@ -116,4 +118,45 @@ public class AlunoDao {
             e.printStackTrace();
         }
     }
+    
+    public boolean checkAlunoLogin(String login, String senha){
+        try {
+            Statement stm = connection.createStatement();
+            ResultSet rs = stm.executeQuery("select senha from alunos where login='" + login +"'");
+            
+            String correctPassword;
+            while(rs.next()){
+                 correctPassword = rs.getString("login");
+                
+                if(correctPassword.equals(senha)){
+                return true;
+                }
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean checkExistLogin(String login){
+        try {
+            Statement stm = connection.createStatement();
+            ResultSet rs = stm.executeQuery("select login from alunos where login='" + login +"'");
+            
+            String returned_login;
+            while(rs.next()){
+                 returned_login = rs.getString("login");
+                
+                if(returned_login.equals(login)){
+                return true;
+                }
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
 }

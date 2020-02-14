@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Aluno;
 import model.Instrutor;
 import util.DataBaseUtil;
@@ -99,5 +101,25 @@ public class InstrutorDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    
+    public boolean checkInstrutorLogin(String login, String senha){
+        try {
+            Statement stm = connection.createStatement();
+            ResultSet rs = stm.executeQuery("select senha from instrutores where login='" + login +"'");
+            
+            String correctPassword;
+            while(rs.next()){
+                 correctPassword = rs.getString("login");
+                
+                if(correctPassword.equals(senha)){
+                return true;
+                }
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(InstrutorDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }

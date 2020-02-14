@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>FilterCadastro</filter-name>
+        <filter-class>Filter.FilterCadastro</filter-class>
+    </filter>
+    <filter>
+        <filter-name>FilterLogin</filter-name>
+        <filter-class>Filter.FilterLogin</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterLogin</filter-name>
+        <servlet-name>ServletLogin</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FilterCadastro</filter-name>
+        <servlet-name>ServletCadastro</servlet-name>
+    </filter-mapping>
     <servlet>
         <servlet-name>ServletInserirAdmin</servlet-name>
         <servlet-class>PageServelts.ServletInserirAdmin</servlet-class>
@@ -8,6 +24,30 @@
         <servlet-name>ServletInserirTurma</servlet-name>
         <servlet-class>PageServelts.ServletInserirTurma</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletLogin</servlet-name>
+        <servlet-class>PageServelts.ServletLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletCadastro</servlet-name>
+        <servlet-class>PageServelts.ServletCadastro</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletInserirAluno</servlet-name>
+        <servlet-class>PageServelts.ServletInserirAluno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletInserirCurso</servlet-name>
+        <servlet-class>PageServelts.ServletInserirCurso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletInserirInstrutor</servlet-name>
+        <servlet-class>PageServelts.ServletInserirInstrutor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletInserirMatricula</servlet-name>
+        <servlet-class>PageServelts.ServletInserirMatricula</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletInserirAdmin</servlet-name>
         <url-pattern>/ServletInserirAdmin</url-pattern>
@@ -15,6 +55,30 @@
     <servlet-mapping>
         <servlet-name>ServletInserirTurma</servlet-name>
         <url-pattern>/ServletInserirTurma</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletLogin</servlet-name>
+        <url-pattern>/ServletLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCadastro</servlet-name>
+        <url-pattern>/ServletCadastro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletInserirAluno</servlet-name>
+        <url-pattern>/ServletInserirAluno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletInserirCurso</servlet-name>
+        <url-pattern>/ServletInserirCurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletInserirInstrutor</servlet-name>
+        <url-pattern>/ServletInserirInstrutor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletInserirMatricula</servlet-name>
+        <url-pattern>/ServletInserirMatricula</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

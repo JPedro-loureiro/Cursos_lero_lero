@@ -41,21 +41,12 @@ public class ServletCadastro extends HttpServlet {
         novo_aluno.setCpf(request.getParameter("cpf"));
         novo_aluno.setEmail(request.getParameter("email"));
         novo_aluno.setSenha(request.getParameter("password"));
-        //novo_aluno.setCelular(request.getParameter("celular"));
-        //novo_aluno.setLogin(request.getParameter("login"));
-        //novo_aluno.setEndereco(request.getParameter("endereco"));
-        //novo_aluno.setCidade(request.getParameter("cidade"));
-        //novo_aluno.setBairro(request.getParameter("bairro"));
-        //novo_aluno.setCep(request.getParameter("cep"));
-        
-        //Testes do BD
-        novo_aluno.setCelular("998339730");
-        novo_aluno.setLogin("Jpedro");
-        novo_aluno.setEndereco(request.getParameter("Rua Prof. Hernani Melo 64"));
-        novo_aluno.setCidade("Niteroi");
-        novo_aluno.setBairro("São Domingos");
-        novo_aluno.setCep("27210130");
-        
+        novo_aluno.setCelular(request.getParameter("celular"));
+        novo_aluno.setLogin(request.getParameter("login"));
+        novo_aluno.setEndereco(request.getParameter("endereco"));
+        novo_aluno.setCidade(request.getParameter("cidade"));
+        novo_aluno.setBairro(request.getParameter("bairro"));
+        novo_aluno.setCep(request.getParameter("cep"));
         
         //Adiciona aluno ao DB
         AlunoDao alunoDao = new AlunoDao();

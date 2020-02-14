@@ -5,7 +5,9 @@
  */
 package Filter;
 
+import dao.AdministradorDao;
 import dao.AlunoDao;
+import dao.InstrutorDao;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -13,19 +15,17 @@ import java.io.StringWriter;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
  * @author Joao_
  */
-@WebFilter(filterName = "Cadastro", urlPatterns = {"/Cadastro"})
-public class FilterCadastro implements Filter {
+public class FilterLogin implements Filter {
     
     private static final boolean debug = true;
 
@@ -34,13 +34,13 @@ public class FilterCadastro implements Filter {
     // configured. 
     private FilterConfig filterConfig = null;
     
-    public FilterCadastro() {
+    public FilterLogin() {
     }    
     
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("Cadastro:DoBeforeProcessing");
+            log("FilterLogin:DoBeforeProcessing");
         }
 
         // Write code here to process the request and/or response before
@@ -68,7 +68,7 @@ public class FilterCadastro implements Filter {
     private void doAfterProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {
-            log("Cadastro:DoAfterProcessing");
+            log("FilterLogin:DoAfterProcessing");
         }
 
         // Write code here to process the request and/or response after
@@ -103,20 +103,38 @@ public class FilterCadastro implements Filter {
             FilterChain chain)
             throws IOException, ServletException {
         
+        String login = request.getParameter("login");
+        String senha = request.getParameter("password");
+        String tipo_usuario = request.getParameter("dropdown_tipo_usuario");
+        
         HttpServletResponse rp = (HttpServletResponse) response;
-        
-        AlunoDao alunoDao = new AlunoDao();
-        
-        if(request.getParameter("cpf").length() != 11){
-            rp.sendRedirect("cadastro.html");
-        } else if(request.getParameter("password").length() < 6){
-            rp.sendRedirect("cadastro.html");
-        } else if(!alunoDao.checkExistLogin(request.getParameter("login"))){
-            rp.sendRedirect("cadastro.html");
-        }
+        if(tipo_usuario == "adm"){
+            AdministradorDao adminDao = new AdministradorDao();
             
+            if(!adminDao.checkAdminLogin(login, senha)){
+                rp.sendRedirect("login.jsp");
+            }
+            
+        } else if(tipo_usuario == "inst"){
+            InstrutorDao instrutorDao = new InstrutorDao();
+            
+            if(!instrutorDao.checkInstrutorLogin(login, senha)){
+                rp.sendRedirect("login.jsp");
+            }
+            
+        } else if(tipo_usuario == "aluno"){
+            AlunoDao alunoDao = new AlunoDao();
+            
+            if(!alunoDao.checkAlunoLogin(login, senha)){
+                rp.sendRedirect("login.jsp");
+            }
+            
+        } else {
+            rp.sendRedirect("login.jsp");
+        }
+        
         if (debug) {
-            log("Cadastro:doFilter()");
+            log("FilterLogin:doFilter()");
         }
         
         doBeforeProcessing(request, response);
@@ -149,7 +167,8 @@ public class FilterCadastro implements Filter {
 
     /**
      * Return the filter configuration object for this filter.
-     */
+     **/
+    
     public FilterConfig getFilterConfig() {
         return (this.filterConfig);
     }
@@ -176,7 +195,7 @@ public class FilterCadastro implements Filter {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
             if (debug) {                
-                log("Cadastro:Initializing filter");
+                log("FilterLogin:Initializing filter");
             }
         }
     }
@@ -187,9 +206,9 @@ public class FilterCadastro implements Filter {
     @Override
     public String toString() {
         if (filterConfig == null) {
-            return ("Cadastro()");
+            return ("FilterLogin()");
         }
-        StringBuffer sb = new StringBuffer("Cadastro(");
+        StringBuffer sb = new StringBuffer("FilterLogin(");
         sb.append(filterConfig);
         sb.append(")");
         return (sb.toString());
