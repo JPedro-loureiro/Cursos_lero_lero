@@ -5,6 +5,7 @@
  */
 package dao;
 
+import static java.lang.Integer.parseInt;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +13,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import model.Administrador;
 import model.Aluno;
 import util.DataBaseUtil;
 /**
@@ -59,6 +59,7 @@ public class AlunoDao {
             ResultSet rs = stmt.executeQuery("select * from administrador");
             while (rs.next()) {
                 Aluno aluno = new Aluno();
+                aluno.setId(parseInt(rs.getString("id")));
                 aluno.setCpf(rs.getString("cpf"));
                 aluno.setNome(rs.getString("nome"));
                 aluno.setEmail(rs.getString("email"));
@@ -76,5 +77,43 @@ public class AlunoDao {
         }
 
         return listaDeAlunos;
+    }
+    
+    public void deleteAluno(int alunoId) {
+        try {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("delete from alunos where id=?");
+            preparedStatement.setInt(1, alunoId);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void updateAluno(Aluno aluno) {
+        try {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("update alunos set cpf=?, nome=?, email=?,"
+                            + " celular=?, login=?, endereco=?, cidade=?, bairro=?,"
+                            + " cep=?, aprovado=?, senha=? where id=?");
+            // Parameters start with 1
+            preparedStatement.setString(1, aluno.getCpf());
+            preparedStatement.setString(2, aluno.getNome());
+            preparedStatement.setString(3, aluno.getEmail());
+            preparedStatement.setString(4, aluno.getCelular());
+            preparedStatement.setString(5, aluno.getLogin());
+            preparedStatement.setString(6, aluno.getEndereco());
+            preparedStatement.setString(7, aluno.getCidade());
+            preparedStatement.setString(8, aluno.getBairro());
+            preparedStatement.setString(9, aluno.getCep());
+            preparedStatement.setString(10, aluno.getAprovado());
+            preparedStatement.setString(11, aluno.getSenha());
+            preparedStatement.setInt(12, aluno.getId());
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

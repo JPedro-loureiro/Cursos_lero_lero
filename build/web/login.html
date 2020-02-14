@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
 
@@ -34,15 +35,7 @@
         margin-top: 0px !important;
         margin-bottom: 0px !important;
       }
-
-      .google {
-        color:#292b2c;
-        width:100%;
-        height:40px;
-        text-align:center;
-        outline:none;
-        border: 1px solid #292b2c;
-      }
+      
     </style>
 
     <title>Login - Cursos Lero Lero</title>
@@ -53,34 +46,34 @@
 
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-
+    
         <a class="navbar-brand h4" href="index.jsp">Cursos Lero Lero</a>
-        
+    
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-
+    
             <li class="nav-item active">
               <a class="nav-link" href="sobre_nos.html">Sobre nós </a>
             </li>
-
+    
             <li class="nav-item active">
               <a class="nav-link" href="instrutores.jsp">Instrutores</a>
             </li>
-
+    
             <li class="nav-item active">
               <a class="nav-link" href="comentarios.html">Comentários </a>
             </li>
-
+    
             <li class="nav-item disabled">
               <a class="nav-link" href="tabelas.html">Tabelas </a>
             </li>
           </ul>
-          
+    
           <a class="btn btn-primary" href="cadastro.html" role="button">Cadastre-se</a>
           <a class="nav-link" href="login.html">Login <span class="sr-only">(current)</span></a>
-
+    
         </div>
-      </nav>   
+      </nav>
     </header>
 
     <div class="container">
@@ -100,40 +93,40 @@
 
                 <div class="form-group">
                   <label for="Campo_login">Email</label>
-                  <input type="email" name="email"  class="form-control email" id="email">
+                  <input type="email" name="email"  class="form-control" id="email">
                 </div>
 
                 <div class="form-group">
                   <label for="Campo_login">Senha</label>
-                  <input type="password" name="password" id="password"  class="form-control password">
+                  <input type="password" name="password" id="password"  class="form-control">
                 </div>
 
                 <div class="form-group">
-                  <p class="text-center">Ao entrar, você aceita nossos termos de uso</p>
-                </div>
-
-                <div class="col-md-12 text-center ">
-                  <button type="submit" class=" btn btn-block btn-primary tx-tfm">Login</button>
+                  <label for="Campo_login">Tipo de usuário</label>
+                  <select id="dropdown_tipo_usuario" name="dropdown_tipo_usuario" class="form-control">
+                    <option value="">Entrar como</option>
+                    <option value="adm">Administrador</option>
+                    <option value="aluno">Aluno</option>
+                    <option value="inst">Instrutor</option>
+                  </select>
                 </div>
 
                 <div class="col-md-12 ">
                   <div class="login-or">
                     <hr class="hr-or">
-                    <span class="span-or">or</span>
+                    <span class="span-or"></span>
                   </div>
                 </div>
 
-                <div class="col-md-12 mb-3">
-                  <p class="text-center">
-                    <a href="javascript:void();" class="google btn"> 
-                    Entrar com Google (não implementado)</a>
-                  </p>
+                <div class="text-center pb-3">
+                  <button type="submit" class=" btn btn-block btn-primary tx-tfm">Login</button>
                 </div>
 
                 <div class="form-group">
                   <p class="text-center">Não tem uma conta? <a href="cadastro.html" id="signup">
-                    Cadastre-se</a></p>
+                      Cadastre-se</a></p>
                 </div>
+
               </form>
             </div>
           </div>
@@ -142,7 +135,7 @@
     </div>   
        
     <!-- Rodapé -->
-    <footer class="navbar navbar-fixed-bottom bg-secondary text-white">
+    <footer class="navbar fixed-bottom bg-secondary text-white">
       <div class="footer-copyright mx-auto py-3">2020 Caíque e João Pedro
       </div>
     </footer>
@@ -161,16 +154,21 @@
         
             email: { required: true},
 
-            password: { required: true, minlength: 6, maxlength: 255 }
+            password: { required: true, minlength: 6, maxlength: 255 },
 
-          }, 
+            dropdown_tipo_usuario: { required: true }
+
+          },
           messages: {
 
             email: {required: "Obrigatório"},
 
             password: {required: "Obrigatória", 
             minlength: "6 caracteres no mínimo", 
-            maxlength: "255 caracteres no máximo"}
+            maxlength: "255 caracteres no máximo"}, 
+
+            dropdown_tipo_usuario: { required: "Escolha um tipo" }
+
           },
 
           submitHandler: function(form) {

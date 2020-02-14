@@ -59,6 +59,7 @@ public class MatriculaDao {
             ResultSet rs = stmt.executeQuery("select * from administrador");
             while (rs.next()) {
                 Matricula matricula = new Matricula();
+                matricula.setId(parseInt(rs.getString("id")));
                 matricula.setTurma_id(parseInt(rs.getString("turmas_id")));
                 matricula.setAluno_id(parseInt(rs.getString("alunos_id")));
                 
@@ -66,7 +67,7 @@ public class MatriculaDao {
                 try {
                     matricula.setData_matricula(format.parse(rs.getString("data_matricula")));
                 } catch (ParseException ex) {
-                    Logger.getLogger(ServletInserirMatricula.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MatriculaDao.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
                 matricula.setNota(parseFloat(rs.getString("nota")));
@@ -77,5 +78,35 @@ public class MatriculaDao {
         }
 
         return listaDeMatriculas;
+    }
+    
+    public void deleteMatricula(int matriculaId) {
+        try {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("delete from matriculas where id=?");
+            preparedStatement.setInt(1, matriculaId);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void updateMatricula(Matricula matricula) {
+        try {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("update matriculas set turmas_id=?, alunos_id=?, "
+                            + "data_matricula=?, nota=? where id=?");
+            // Parameters start with 1
+            preparedStatement.setInt(1, matricula.getTurma_id());
+            preparedStatement.setInt(2, matricula.getAluno_id());
+            preparedStatement.setDate(3, (Date) matricula.getData_matricula());
+            preparedStatement.setFloat(4, matricula.getNota());
+            preparedStatement.setInt(5, matricula.getId());
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

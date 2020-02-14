@@ -54,6 +54,7 @@ public class CursoDao {
             ResultSet rs = stmt.executeQuery("select * from curso");
             while (rs.next()) {
                 Curso curso = new Curso();
+                curso.setId(parseInt(rs.getString("id")));
                 curso.setNome(rs.getString("nome"));
                 curso.setRequisito(rs.getString("requisito"));
                 curso.setEmenta(rs.getString("ementa"));
@@ -68,4 +69,34 @@ public class CursoDao {
         return listaDeCursos;
     }
     
+    public void deleteCurso(int cursoId) {
+        try {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("delete from cursos where id=?");
+            preparedStatement.setInt(1, cursoId);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void updateCurso(Curso curso) {
+        try {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("update cursos set nome=?, requisito=?, "
+                            + "ementa=?, carga_horaria=?, preco=? where id=?");
+            // Parameters start with 1
+            preparedStatement.setString(1, curso.getNome());
+            preparedStatement.setString(2, curso.getRequisito());
+            preparedStatement.setString(3, curso.getEmenta());
+            preparedStatement.setInt(4, curso.getCarga_horaria());
+            preparedStatement.setString(5, String.valueOf(curso.getPreco()));
+            preparedStatement.setInt(6, curso.getId());
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

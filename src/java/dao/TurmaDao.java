@@ -58,6 +58,7 @@ public class TurmaDao {
             ResultSet rs = stmt.executeQuery("select * from administrador");
             while (rs.next()) {
                 Turma turma = new Turma();
+                turma.setId(parseInt(rs.getString("id")));
                 turma.setInstrutor_id(parseInt(rs.getString("intrutores_id")));
                 turma.setCurso_id(parseInt(rs.getString("cursos_id")));
                 
@@ -66,7 +67,7 @@ public class TurmaDao {
                     turma.setData_inicio(format.parse(rs.getString("data_inicio")));
                     turma.setData_fim(format.parse(rs.getString("data_final")));
                 } catch (ParseException ex) {
-                    Logger.getLogger(ServletInserirMatricula.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TurmaDao.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
                 turma.setCarga_horaria(parseInt(rs.getString("carga_horaria")));
@@ -79,4 +80,34 @@ public class TurmaDao {
         return listaDeTurmas;
     }
     
+    public void deleteTurma(int turmaId) {
+        try {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("delete from turmas where id=?");
+            preparedStatement.setInt(1, turmaId);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void updateTurma(Turma turma) {
+        try {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("update turmas set instrutor_id=?, curso_id=?, "
+                            + "data_inicio=?, data_final=?, carga_horaria=?, where id=?");
+            // Parameters start with 1
+            preparedStatement.setInt(1, turma.getInstrutor_id());
+            preparedStatement.setInt(2, turma.getCurso_id());
+            preparedStatement.setDate(3, (Date) turma.getData_inicio());
+            preparedStatement.setDate(4, (Date) turma.getData_fim());
+            preparedStatement.setInt(5, turma.getCarga_horaria());
+            preparedStatement.setInt(6, turma.getId());
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

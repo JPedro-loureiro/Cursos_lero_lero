@@ -46,7 +46,7 @@ public class ServletInserirTurma extends HttpServlet {
             nova_turma.setData_inicio(format.parse(request.getParameter("data_inicio")));
             nova_turma.setData_fim(format.parse(request.getParameter("data_final")));
         } catch (ParseException ex) {
-            Logger.getLogger(ServletInserirMatricula.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServletInserirTurma.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         TurmaDao turmaDao = new TurmaDao();

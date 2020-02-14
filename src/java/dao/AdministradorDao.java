@@ -5,6 +5,7 @@
  */
 package dao;
 
+import static java.lang.Integer.parseInt;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,6 +48,7 @@ public class AdministradorDao {
             ResultSet rs = stmt.executeQuery("select * from administrador");
             while (rs.next()) {
                 Administrador admin = new Administrador();
+                admin.setId(parseInt(rs.getString("id")));
                 admin.setNome(rs.getString("nome"));
                 admin.setLogin(rs.getString("login"));
                 listaDeAdmins.add(admin);
@@ -56,5 +58,33 @@ public class AdministradorDao {
         }
 
         return listaDeAdmins;
+    }
+    
+    public void deleteAdministrador(int adminId) {
+        try {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("delete from administrador where id=?");
+            preparedStatement.setInt(1, adminId);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void updateAdministrador(Administrador admin) {
+        try {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("update administrador set nome=?, login=?, senha=? where id=?");
+            // Parameters start with 1
+            preparedStatement.setString(1, admin.getNome());
+            preparedStatement.setString(2, admin.getLogin());
+            preparedStatement.setString(3, admin.getSenha());
+            preparedStatement.setInt(4, admin.getId());
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
