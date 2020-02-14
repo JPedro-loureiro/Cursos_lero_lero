@@ -20,8 +20,8 @@ import model.Aluno;
  *
  * @author Joao_
  */
-@WebServlet(name = "Cadastro", urlPatterns = {"/Cadastro"})
-public class Cadastro extends HttpServlet {
+@WebServlet(name = "ServletCadastro", urlPatterns = {"/ServletCadastro"})
+public class ServletCadastro extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -40,31 +40,29 @@ public class Cadastro extends HttpServlet {
         novo_aluno.setNome(request.getParameter("name"));
         novo_aluno.setCpf(request.getParameter("cpf"));
         novo_aluno.setEmail(request.getParameter("email"));
+        novo_aluno.setSenha(request.getParameter("password"));
         //novo_aluno.setCelular(request.getParameter("celular"));
         //novo_aluno.setLogin(request.getParameter("login"));
-        novo_aluno.setSenha(request.getParameter("password"));
         //novo_aluno.setEndereco(request.getParameter("endereco"));
         //novo_aluno.setCidade(request.getParameter("cidade"));
         //novo_aluno.setBairro(request.getParameter("bairro"));
         //novo_aluno.setCep(request.getParameter("cep"));
         
-        String forward;
-        //Verificações
-        if(novo_aluno.getCpf().length() != 11){
-            forward = "/cadastro.html";
-            RequestDispatcher rd = request.getRequestDispatcher(forward);
-            rd.forward(request, response);
-        } else if(novo_aluno.getSenha().length() < 6){
-            forward = "/cadastro.html";
-            RequestDispatcher rd = request.getRequestDispatcher(forward);
-            rd.forward(request, response);
-        } else {
-            //Caso passe em todas as verificação, adiciona aluno ao DB
-            AlunoDao alunoDao = new AlunoDao();
-            alunoDao.addAluno(novo_aluno);
-        }
+        //Testes do BD
+        novo_aluno.setCelular("998339730");
+        novo_aluno.setLogin("Jpedro");
+        novo_aluno.setEndereco(request.getParameter("Rua Prof. Hernani Melo 64"));
+        novo_aluno.setCidade("Niteroi");
+        novo_aluno.setBairro("São Domingos");
+        novo_aluno.setCep("27210130");
         
-        forward = //area_aluno.jsp
+        
+        //Adiciona aluno ao DB
+        AlunoDao alunoDao = new AlunoDao();
+        alunoDao.addAluno(novo_aluno);
+        
+        String forward;
+        forward = "area_aluno.jsp";
         RequestDispatcher rd = request.getRequestDispatcher(forward);
         rd.forward(request, response);
     }

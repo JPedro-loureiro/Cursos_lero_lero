@@ -106,7 +106,7 @@ public class FilterCadastro implements Filter {
             forward = "/cadastro.html";
             RequestDispatcher rd = request.getRequestDispatcher(forward);
             rd.forward(request, response);
-        } else if(request.getParameter("senha").length() < 6){
+        } else if(request.getParameter("password").length() < 6){
             forward = "/cadastro.html";
             RequestDispatcher rd = request.getRequestDispatcher(forward);
             rd.forward(request, response);

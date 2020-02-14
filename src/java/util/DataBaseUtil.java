@@ -23,8 +23,6 @@ public class DataBaseUtil {
             return connection;
         else {
             try {
-                Properties prop = new Properties();
-                
                 String user = "root";
                 String password = "";
                 Class.forName("com.mysql.jdbc.Driver");

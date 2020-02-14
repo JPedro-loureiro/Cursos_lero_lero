@@ -23,6 +23,7 @@ public class AlunoDao {
         connection = DataBaseUtil.getConnection();
     }
     
+    
     public void addAluno(Aluno aluno){
         try{
             PreparedStatement preparedStatement = connection.prepareStatement("insert into "
