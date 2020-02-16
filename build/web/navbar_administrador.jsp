@@ -20,12 +20,12 @@
                 </li>
 
                 <li class="nav-item disabled">
-                    <a class="nav-link" href="tabelas.jsp">Tabelas </a>
+                    <a class="nav-link" href="tabelas.jsp">Painel de controle </a>
                 </li>
             </ul>
 
-            <a class="btn btn-primary" href="cadastro.html" role="button">Cadastre-se</a>
-            <a class="nav-link" href="login.html">Login <span class="sr-only">(current)</span></a>
+            <a class="btn btn-primary" href="cadastro.jsp" role="button">Cadastre-se</a>
+            <a class="nav-link" href="login.jsp">Login <span class="sr-only">(current)</span></a>
 
         </div>
     </nav>

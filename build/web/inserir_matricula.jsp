@@ -3,13 +3,13 @@
 <html lang="pt-br">
 
   <head>
-    <jsp:include page="template/head.jsp" />
+    <jsp:include page="head.jsp" />
   </head>
 
   <body>
 
     <!-- Navbar -->
-    <jsp:include page="template/navbar_administrador.jsp" />
+    <jsp:include page="navbar_administrador.jsp" />
 
     <div class="container-fluid py-5">
     
@@ -17,7 +17,7 @@
     
         <div class="container pt-5">
           <div class="text-center pt-5">
-            <h1 class="text-primary">Nova matrícula</h1>
+            <h1 class="text-primary">Inserir matrícula</h1>
           </div>
         </div>
 
@@ -55,14 +55,8 @@
     </div>
 
     <!-- Rodapé -->
-    <jsp:include page="template/rodape.jsp" />
-
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="js/validate_traducao.js"></script>
-
+    <jsp:include page="rodape.jsp" />
+    
     <script>
       $(document).ready(function () {
         $("#form-mat").validate({

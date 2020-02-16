@@ -48,6 +48,26 @@
         <servlet-name>ServletInserirMatricula</servlet-name>
         <servlet-class>PageServelts.ServletInserirMatricula</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletAprovCadastrosPendentes</servlet-name>
+        <servlet-class>PageServelts.ServletAprovCadastrosPendentes</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletVerAluno</servlet-name>
+        <servlet-class>PageServelts.ServletVerAluno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletVerInstrutor</servlet-name>
+        <servlet-class>PageServelts.ServletVerInstrutor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletVerCurso</servlet-name>
+        <servlet-class>PageServelts.ServletVerCurso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletVerTurma</servlet-name>
+        <servlet-class>PageServelts.ServletVerTurma</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletInserirAdmin</servlet-name>
         <url-pattern>/ServletInserirAdmin</url-pattern>
@@ -79,6 +99,26 @@
     <servlet-mapping>
         <servlet-name>ServletInserirMatricula</servlet-name>
         <url-pattern>/ServletInserirMatricula</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletAprovCadastrosPendentes</servlet-name>
+        <url-pattern>/ServletAprovCadastrosPendentes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletVerAluno</servlet-name>
+        <url-pattern>/ServletVerAluno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletVerInstrutor</servlet-name>
+        <url-pattern>/ServletVerInstrutor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletVerCurso</servlet-name>
+        <url-pattern>/ServletVerCurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletVerTurma</servlet-name>
+        <url-pattern>/ServletVerTurma</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

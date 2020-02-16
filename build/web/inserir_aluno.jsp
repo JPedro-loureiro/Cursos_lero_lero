@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@page import="model.Aluno"%>
+
 <html lang="pt-br">
 
     <head>
@@ -17,7 +19,7 @@
         
                 <div class="container pt-5">
                     <div class="text-center pt-5">
-                        <h1 class="text-primary">Novo aluno</h1>
+                        <h1 class="text-primary">Inserir aluno</h1>
                     </div>
                 </div>
 
@@ -55,8 +57,8 @@
 
                     <div class="form-group">
                         <label for="Campo_cadastro">Senha</label>
-                        <input type="password" name="senha" id="senha"  
-                        class="form-control senha" placeholder="(Obrigatória)">
+                        <input type="password" name="password" id="password"  
+                        class="form-control password" placeholder="(Obrigatória)">
                     </div>
 
                     <div class="form-group">
@@ -90,7 +92,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="Campo_cadastro">Aprovado</label>
+                        <label for="Campo_cadastro">Aprovado (s/n)</label>
                         <input type="text" class="form-control aprovado" id="aprovado" 
                         name="comentario" placeholder="(Obrigatório)">
                     </div>
@@ -104,12 +106,6 @@
         
         <!-- Rodapé -->
         <jsp:include page="rodape.jsp" />
-
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/jquery-validation/dist/jquery.validate.min.js"></script>
-        <script type="text/javascript" src="js/validate_traducao.js"></script>
 
         <script>
             $(document).ready(function() {
@@ -126,7 +122,7 @@
 
                         login: { required: true, minlength: 3, maxlength: 20 },
 
-                        senha: { required: true, minlength: 6, maxlength: 255 },
+                        password: { required: true, minlength: 6, maxlength: 255 },
 
                         endereco: {minlength: 3, maxlength: 50 },
 
@@ -161,7 +157,7 @@
                         minlength: "3 caracteres no mínimo",
                         maxlength: "20 caracteres no máximo"},
 
-                        senha: {required: "Obrigatória", 
+                        password: {required: "Obrigatória", 
                         minlength: "Mínimo de 6 caracteres", 
                         maxlength: "Máximo de 255 caracteres" },
 

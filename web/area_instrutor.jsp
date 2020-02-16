@@ -2,18 +2,18 @@
 <html lang="pt-br">
 
 <head>
-    <jsp:include page="template/head.jsp" />
+    <jsp:include page="head.jsp" />
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <jsp:include page="template/navbar.jsp" />
+    <jsp:include page="navbar.jsp" />
 
     <h1>Aqui vai a Area do instrutor</h1>
 
     <!-- Rodapé -->
-    <jsp:include page="template/rodape.jsp" />
+    <jsp:include page="rodape.jsp" />
 </body>
 
 </html>

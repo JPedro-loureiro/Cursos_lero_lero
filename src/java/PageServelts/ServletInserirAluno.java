@@ -8,6 +8,7 @@ package PageServelts;
 import dao.AlunoDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,6 +41,11 @@ public class ServletInserirAluno extends HttpServlet {
         
         AlunoDao alunoDao = new AlunoDao();
         alunoDao.addAluno(novo_aluno);
+        
+        request.setAttribute("alunosAprovados", alunoDao.getAllAlunosAprovados());
+        
+        RequestDispatcher rd = request.getRequestDispatcher("ver_alunos.jsp");
+        rd.forward(request, response);
     }
 
     /**

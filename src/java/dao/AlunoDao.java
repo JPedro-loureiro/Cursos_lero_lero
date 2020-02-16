@@ -54,6 +54,31 @@ public class AlunoDao {
         }
     }
     
+    public Aluno getAlunoById(int aluno_id){
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from alunos where id='" + aluno_id + "'");
+            if(rs.next()) {
+                Aluno aluno = new Aluno();
+                aluno.setId(parseInt(rs.getString("id")));
+                aluno.setCpf(rs.getString("cpf"));
+                aluno.setNome(rs.getString("nome"));
+                aluno.setEmail(rs.getString("email"));
+                aluno.setCelular(rs.getString("celular"));
+                aluno.setLogin(rs.getString("login"));
+                aluno.setEndereco(rs.getString("endereco"));
+                aluno.setCidade(rs.getString("cidade"));
+                aluno.setBairro(rs.getString("bairro"));
+                aluno.setCep(rs.getString("cep"));
+                aluno.setAprovado(rs.getString("aprovado"));
+                return aluno;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public Aluno getAlunoByLogin(String login){
         try {
             Statement stmt = connection.createStatement();
@@ -238,6 +263,13 @@ public class AlunoDao {
             Logger.getLogger(AlunoDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+    
+    public void aprovarAluno(Aluno aluno){
+        aluno.setAprovado("s");
+        
+        AlunoDao alunoDao = new AlunoDao();
+        alunoDao.updateAluno(aluno);
     }
     
 }
