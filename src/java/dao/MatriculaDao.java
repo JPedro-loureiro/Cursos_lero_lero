@@ -22,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Aluno;
 import model.Matricula;
+import model.Turma;
 import util.DataBaseUtil;
 
 /**
@@ -85,6 +86,34 @@ public class MatriculaDao {
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("select * from matriculas where alunos_id='" + aluno.getId() + "'");
+            while (rs.next()) {
+                Matricula matricula = new Matricula();
+                matricula.setId(parseInt(rs.getString("id")));
+                matricula.setTurma_id(parseInt(rs.getString("turmas_id")));
+                matricula.setAluno_id(parseInt(rs.getString("alunos_id")));
+                
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    matricula.setData_matricula(format.parse(rs.getString("data_matricula")));
+                } catch (ParseException ex) {
+                    Logger.getLogger(MatriculaDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                matricula.setNota(parseFloat(rs.getString("nota")));
+                listaDeMatriculas.add(matricula);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MatriculaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return listaDeMatriculas;
+    }
+    
+public List<Matricula> getMatriculasByTurma(Turma turma){
+        List<Matricula> listaDeMatriculas = new ArrayList<Matricula>();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from matriculas where turma_id='" + turma.getId() + "'");
             while (rs.next()) {
                 Matricula matricula = new Matricula();
                 matricula.setId(parseInt(rs.getString("id")));

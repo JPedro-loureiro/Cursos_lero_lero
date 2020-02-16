@@ -106,6 +106,7 @@ public class AlunoDao {
     
     public List<Aluno> getAllAlunos() {
         List<Aluno> listaDeAlunos = new ArrayList<Aluno>();
+        
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("select * from administrador");

@@ -1,3 +1,4 @@
+<%@page import="model.AlunoCursoTurma"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
@@ -11,22 +12,22 @@
         <jsp:include page="head.jsp" />
     </head>
 
-    <body>
+    
 
         <!-- Navbar -->
         <jsp:include page="navbar_administrador.jsp" />
 
-        <div class="container">
+        
             <div class="text-center py-5">
                 <h1 class="text-primary">Alunos por curso/turma</h1>
             </div>
 
             <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-            <form class="py-3" id="form-alunos-curso" method="POST" action="">
+            <form class="py-3" id="form-alunos-curso" method="POST" action="ServletAlunoPorCurso">
             
                 <div class="form-group">
                     <label for="Campo_cadastro">id da turma</label>
-                    <input type="text" name="instrutores_id" class="form-control instrutores_id" id="instrutores_id"
+                    <input type="text" name="turma_id" class="form-control turma_id" id="turma_id"
                         placeholder="(Obrigatório)">
                 </div>
             
@@ -35,7 +36,7 @@
                 </div>
             </form>
 
-            <table class="table table-responsive-md table-hover ">
+            
 
                 <thead-light>
                     <tr>
@@ -46,28 +47,28 @@
                     </tr>
                     </thead>
 
-                    <tbody>
+                    
                         <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                        <!-- <% List<Aluno> alunos = (List<Aluno>) request.getAttribute("alunos");
-                                for (Aluno i : alunos) { %>
+                        <!-- <% List<AlunoCursoTurma> alunos = (List<AlunoCursoTurma>) request.getAttribute("alunos");
+                                for (AlunoCursoTurma i : alunos) { %>
                         <tr>
                             <th scope="row">
-                                <td><%=i.getAluno_id()%></td>
+                                <td><%=i.getNome_aluno()%></td>
                             </th>
 
-                            <td><%=i.getTurma_id()%></td>
-                            <td><%=i.getAluno_id()%></td>
-                            <td><%=i.getData_matricula()%></td>
+                            <td><%=i.getNome_aluno()%></td>
+                            <td><%=i.getNome_curso()%></td>
+                            <td><%=i.getId_turma()%></td>
                             <td><%=i.getNota()%></td>
 
                         </tr>
                     <%}%> -->
-                </tbody>
-            </table>
-        </div>
+                
+            
+        
 
         <!-- Rodapé -->
         <jsp:include page="rodape.jsp" />
-    </body>
+    
 
 </html>

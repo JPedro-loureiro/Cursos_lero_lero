@@ -68,6 +68,10 @@
         <servlet-name>ServletVerTurma</servlet-name>
         <servlet-class>PageServelts.ServletVerTurma</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletAlunoPorCurso</servlet-name>
+        <servlet-class>PageServelts.ServletAlunoPorCurso</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletInserirAdmin</servlet-name>
         <url-pattern>/ServletInserirAdmin</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>ServletVerTurma</servlet-name>
         <url-pattern>/ServletVerTurma</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletAlunoPorCurso</servlet-name>
+        <url-pattern>/ServletAlunoPorCurso</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

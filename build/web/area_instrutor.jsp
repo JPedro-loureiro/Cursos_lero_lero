@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@page import="model.Instrutor"%>
+
 <html lang="pt-br">
 
 <head>
@@ -10,10 +13,121 @@
     <!-- Navbar -->
     <jsp:include page="navbar.jsp" />
 
-    <h1>Aqui vai a Area do instrutor</h1>
+    <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <!-- <% Instrutor i = (Instrutor) request.getAttribute("instrutor"); %> -->
 
-    <!-- Rodapé -->
-    <jsp:include page="rodape.jsp" />
-</body>
+    <div class="container pt-5">
+        <div class="text-center pt-5">
+            <h1 class="text-primary">Bem vindo, instrutor <%if (a != null) {%><%=i.getNome()%><%}%> </h1>
+            </div>
+        </div>
 
+        <div class="row d-flex justify-content-center">
+            <div class="btn-group btn-group-lg" role="group">
+        
+                <a type="button" class="btn btn-outline-primary px-4" 
+                href="area_instrutor_notas.jsp">Alunos e notas</a>
+                
+                <a type="button" class="btn btn-outline-primary px-4" 
+                href="area_instrutor_valores.jsp">Valores</a>
+            </div>
+        </div>
+
+        <div class="container pt-5">
+            <div class="text-center pt-5">
+                <h3 class="text-secondary">Meus dados </h3>
+            </div>
+        </div>
+
+        <div class="myform form py-5">
+
+            <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <!-- <form class="py-3" id="form-instrutor" method="POST" action=""> -->
+        
+                <div class="form-group">
+                    <label for="Campo_cadastro">Nome</label>
+                    <input type="text" name="nome" class="form-control nome" id="nome"
+                    value="<%if (i != null) {%><%=i.getNome()%><%}%>">
+                </div>
+        
+                <div class="form-group">
+                    <label for="Campo_cadastro">Email</label>
+                    <input type="email" name="email" class="form-control email" id="email"
+                    value="<%if (i != null) {%><%=i.getEmail()%><%}%>">
+                </div>
+        
+                <div class="form-group">
+                    <label for="valor_hora">Valor/hora</label>
+                    <input type="text" class="form-control valor_hora" id="valor_hora" name="valor_hora"
+                    value="<%if (i != null) {%><%=i.getValor_hora()%><%}%>")>
+                </div>
+        
+                <div class="form-group">
+                    <label for="Campo_cadastro">Login</label>
+                    <input type="text" name="login" class="form-control login" id="login"
+                    value="<%if (i != null) {%><%=i.getLogin()%><%}%>">
+                </div>
+        
+                <div class="form-group">
+                    <label for="Campo_cadastro">Experiência</label>
+                    <input type="text" name="experiencia" class="form-control experiencia" id=" 
+                    experiencia"value="<%if (i != null) {%><%=i.getExpericencia()%><%}%>">
+                </div>
+        
+                <div class="col-md-12 text-center mb-3">
+                    <button type="submit" class=" btn btn-primary tx-tfm">Inserir no sistema</button>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- Rodapé -->
+        <jsp:include page="rodape.jsp" />
+
+        <script>
+            $(document).ready(function () {
+                $('#form-instrutor').validate({
+                    rules: {
+
+                        nome: { required: true, minlength: 3, maxlength: 50 },
+
+                        email: { required: true },
+
+                        valor_hora: { number: true },
+
+                        login: { required: true, minlength: 3, maxlength: 20 },
+
+                        experiencia: { minlength: 3, maxlength: 255 },
+
+                    },
+                    messages: {
+
+                        nome: {
+                            required: "Obrigatório",
+                            minlength: "3 caracteres no mínimo",
+                            maxlength: "50 caracteres no máximo"
+                        },
+
+                        email: { required: "Obrigatório" },
+
+                        login: {
+                            required: "Obrigatório",
+                            minlength: "3 caracteres no mínimo",
+                            maxlength: "20 caracteres no máximo"
+                        },
+
+                        experiencia: {
+                            minlength: "Deve ter 3 caracteres",
+                            maxlength: "Deve ter 255 caracteres"
+                        },
+
+                    },
+
+                    submitHandler: function (form) {
+                        form.submit();
+                    }
+                });
+            });
+        </script>
+    </body>
 </html>
