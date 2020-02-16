@@ -1,50 +1,15 @@
-<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <html lang="pt-br">
+
   <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/cor_erro_formulario.css">
-
-    <title>Inserir instrutor - Cursos Lero Lero</title>
-
+    <jsp:include page="template/head.jsp" />
   </head>
 
   <body>
 
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-
-        <a class="navbar-brand h4" href="index.jsp">Cursos Lero Lero</a>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item active">
-              <a class="nav-link" href="sobre_nos.html">Sobre nós </a>
-            </li>
-
-            <li class="nav-item active">
-              <a class="nav-link" href="instrutores.jsp">Instrutores</a>
-            </li>
-
-            <li class="nav-item active">
-              <a class="nav-link" href="comentarios.html">Comentários </a>
-            </li>
-
-            <li class="nav-item disabled">
-              <a class="nav-link" href="tabelas.html">Tabelas </a>
-            </li>
-          </ul>
-
-          <a class="btn btn-primary" href="cadastro.html" role="button">Cadastre-se</a>
-          <a class="nav-link" href="login.html">Login <span class="sr-only">(current)</span></a>
-
-        </div>
-      </nav>
-    </header>
+    <!-- Navbar -->
+    <jsp:include page="template/navbar_administrador.jsp" />
 
     <div class="container-fluid py-5">
     
@@ -88,6 +53,12 @@
             placeholder="(Obrigatória)">
           </div>
 
+          <div class="form-group">
+            <label for="Campo_cadastro">Experiência</label>
+            <input type="text" name="experiencia" class="form-control experiencia" id=" 
+            experiencia" placeholder="(Opcional)">
+          </div>
+
           <div class="col-md-12 text-center mb-3">
             <button type="submit" class=" btn btn-primary tx-tfm">Inserir no sistema</button>
           </div>
@@ -96,10 +67,7 @@
     </div>
 
     <!-- Rodapé -->
-    <footer class="navbar navbar-fixed-bottom bg-secondary text-white">
-      <div class="footer-copyright mx-auto py-3">2020 Caíque e João Pedro
-      </div>
-    </footer>
+    <jsp:include page="template/rodape.jsp" />
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -122,7 +90,9 @@
 
             login: { required: true, minlength: 3, maxlength: 20 },
 
-            password: { required: true, minlength: 6, maxlength: 255 }
+            password: { required: true, minlength: 6, maxlength: 255 },
+
+            experiencia: { minlength: 3, maxlength: 255 },
 
           }, 
           messages: {
@@ -140,6 +110,10 @@
             password: {required: "Obrigatória",
             minlength: "Mínimo de 6 caracteres",
             maxlength: "Máximo de 255 caracteres"},
+
+            experiencia: {minlength: "Deve ter 3 caracteres",
+            maxlength: "Deve ter 255 caracteres"},
+
           },
 
           submitHandler: function (form) {

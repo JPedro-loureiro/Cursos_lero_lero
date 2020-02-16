@@ -54,11 +54,90 @@ public class AlunoDao {
         }
     }
     
+    public Aluno getAlunoByLogin(String login){
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from alunos where login='" + login + "'");
+            if(rs.next()) {
+                Aluno aluno = new Aluno();
+                aluno.setId(parseInt(rs.getString("id")));
+                aluno.setCpf(rs.getString("cpf"));
+                aluno.setNome(rs.getString("nome"));
+                aluno.setEmail(rs.getString("email"));
+                aluno.setCelular(rs.getString("celular"));
+                aluno.setLogin(rs.getString("login"));
+                aluno.setEndereco(rs.getString("endereco"));
+                aluno.setCidade(rs.getString("cidade"));
+                aluno.setBairro(rs.getString("bairro"));
+                aluno.setCep(rs.getString("cep"));
+                aluno.setAprovado(rs.getString("aprovado"));
+                return aluno;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public List<Aluno> getAllAlunos() {
         List<Aluno> listaDeAlunos = new ArrayList<Aluno>();
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("select * from administrador");
+            while (rs.next()) {
+                Aluno aluno = new Aluno();
+                aluno.setId(parseInt(rs.getString("id")));
+                aluno.setCpf(rs.getString("cpf"));
+                aluno.setNome(rs.getString("nome"));
+                aluno.setEmail(rs.getString("email"));
+                aluno.setCelular(rs.getString("celular"));
+                aluno.setLogin(rs.getString("login"));
+                aluno.setEndereco(rs.getString("endereco"));
+                aluno.setCidade(rs.getString("cidade"));
+                aluno.setBairro(rs.getString("bairro"));
+                aluno.setCep(rs.getString("cep"));
+                aluno.setAprovado(rs.getString("aprovado"));
+                listaDeAlunos.add(aluno);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaDeAlunos;
+    }
+    
+    public List<Aluno> getAllAlunosAprovados() {
+        List<Aluno> listaDeAlunos = new ArrayList<Aluno>();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from administrador where aprovado='s'");
+            while (rs.next()) {
+                Aluno aluno = new Aluno();
+                aluno.setId(parseInt(rs.getString("id")));
+                aluno.setCpf(rs.getString("cpf"));
+                aluno.setNome(rs.getString("nome"));
+                aluno.setEmail(rs.getString("email"));
+                aluno.setCelular(rs.getString("celular"));
+                aluno.setLogin(rs.getString("login"));
+                aluno.setEndereco(rs.getString("endereco"));
+                aluno.setCidade(rs.getString("cidade"));
+                aluno.setBairro(rs.getString("bairro"));
+                aluno.setCep(rs.getString("cep"));
+                aluno.setAprovado(rs.getString("aprovado"));
+                listaDeAlunos.add(aluno);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaDeAlunos;
+    }
+    
+    public List<Aluno> getAllAlunosPendentes() {
+        List<Aluno> listaDeAlunos = new ArrayList<Aluno>();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from administrador where aprovado='n'");
             while (rs.next()) {
                 Aluno aluno = new Aluno();
                 aluno.setId(parseInt(rs.getString("id")));
@@ -140,6 +219,8 @@ public class AlunoDao {
     }
     
     public boolean checkExistLogin(String login){
+        /*Verifica se já existe algum outro usuário da plataforma com o mesmo login.
+          Garante a unicidade de cada login.*/
         try {
             Statement stm = connection.createStatement();
             ResultSet rs = stm.executeQuery("select login from alunos where login='" + login +"'");

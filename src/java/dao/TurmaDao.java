@@ -51,6 +51,33 @@ public class TurmaDao {
         }
     }
     
+    public Turma getTurmaById(int turma_id){
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from turmas where id='" + turma_id + "'");
+            if(rs.next()) {
+                Turma turma = new Turma();
+                turma.setId(parseInt(rs.getString("id")));
+                turma.setInstrutor_id(parseInt(rs.getString("intrutores_id")));
+                turma.setCurso_id(parseInt(rs.getString("cursos_id")));
+                
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    turma.setData_inicio(format.parse(rs.getString("data_inicio")));
+                    turma.setData_fim(format.parse(rs.getString("data_final")));
+                } catch (ParseException ex) {
+                    Logger.getLogger(TurmaDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                turma.setCarga_horaria(parseInt(rs.getString("carga_horaria")));
+                return turma;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public List<Turma> getAllTurmas() {
         List<Turma> listaDeTurmas = new ArrayList<Turma>();
         try {

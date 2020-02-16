@@ -47,6 +47,26 @@ public class CursoDao {
         }
     }
     
+    public Curso getCursoById(int curso_id){
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from curso where id='" + curso_id + "'");
+            if(rs.next()) {
+                Curso curso = new Curso();
+                curso.setId(parseInt(rs.getString("id")));
+                curso.setNome(rs.getString("nome"));
+                curso.setRequisito(rs.getString("requisito"));
+                curso.setEmenta(rs.getString("ementa"));
+                curso.setCarga_horaria(parseInt(rs.getString("carga_horaria")));
+                curso.setPreco(parseDouble(rs.getString("preco")));
+                return curso;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
     public List<Curso> getAllCursos() {
         List<Curso> listaDeCursos = new ArrayList<Curso>();
         try {

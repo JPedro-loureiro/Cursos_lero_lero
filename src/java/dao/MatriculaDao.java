@@ -56,7 +56,7 @@ public class MatriculaDao {
         List<Matricula> listaDeMatriculas = new ArrayList<Matricula>();
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from administrador");
+            ResultSet rs = stmt.executeQuery("select * from matriculas");
             while (rs.next()) {
                 Matricula matricula = new Matricula();
                 matricula.setId(parseInt(rs.getString("id")));
@@ -77,6 +77,34 @@ public class MatriculaDao {
             e.printStackTrace();
         }
 
+        return listaDeMatriculas;
+    }
+    
+    public List<Matricula> getMatriculasByAluno(Aluno aluno){
+        List<Matricula> listaDeMatriculas = new ArrayList<Matricula>();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from matriculas where alunos_id='" + aluno.getId() + "'");
+            while (rs.next()) {
+                Matricula matricula = new Matricula();
+                matricula.setId(parseInt(rs.getString("id")));
+                matricula.setTurma_id(parseInt(rs.getString("turmas_id")));
+                matricula.setAluno_id(parseInt(rs.getString("alunos_id")));
+                
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    matricula.setData_matricula(format.parse(rs.getString("data_matricula")));
+                } catch (ParseException ex) {
+                    Logger.getLogger(MatriculaDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                matricula.setNota(parseFloat(rs.getString("nota")));
+                listaDeMatriculas.add(matricula);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MatriculaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         return listaDeMatriculas;
     }
     

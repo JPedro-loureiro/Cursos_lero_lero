@@ -1,50 +1,15 @@
-<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <html lang="pt-br">
+
     <head>
-
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/cor_erro_formulario.css">
-
-        <title>Inserir aluno - Cursos Lero Lero</title>
-
+        <jsp:include page="head.jsp" />
     </head>
 
     <body>
 
-        <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-
-            <a class="navbar-brand h4" href="index.jsp">Cursos Lero Lero</a>
-
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-
-                <li class="nav-item active">
-                <a class="nav-link" href="sobre_nos.html">Sobre nós </a>
-                </li>
-
-                <li class="nav-item active">
-                <a class="nav-link" href="instrutores.jsp">Instrutores</a>
-                </li>
-
-                <li class="nav-item active">
-                <a class="nav-link" href="comentarios.html">Comentários </a>
-                </li>
-
-                <li class="nav-item disabled">
-                <a class="nav-link" href="tabelas.html">Tabelas </a>
-                </li>
-            </ul>
-            
-            <a class="btn btn-primary" href="cadastro.html" role="button">Cadastre-se</a>
-            <a class="nav-link" href="login.html">Login <span class="sr-only">(current)</span></a>
-
-            </div>
-        </nav>   
-        </header>
+        <!-- Navbar -->
+        <jsp:include page="navbar_administrador.jsp" />
 
         <div class="container-fluid py-5">
         
@@ -77,7 +42,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="celular">Celular ((XX)XXXXX-XXXX)</label>
+                        <label for="Campo_cadastro">Celular ((XX)XXXXX-XXXX)</label>
                         <input type="text" class="form-control celular" id="celular" name="celular" 
                         placeholder="(Obrigatório)">
                     </div>
@@ -90,32 +55,44 @@
 
                     <div class="form-group">
                         <label for="Campo_cadastro">Senha</label>
-                        <input type="password" name="password" id="password"  
-                        class="form-control password" placeholder="(Obrigatória)">
+                        <input type="password" name="senha" id="senha"  
+                        class="form-control senha" placeholder="(Obrigatória)">
                     </div>
 
                     <div class="form-group">
-                        <label for="endereco">Endereço</label>
+                        <label for="Campo_cadastro">Endereço</label>
                         <input type="text" class="form-control endereco" id="endereco" name="endereco" 
                         placeholder="(Opcional)">
                     </div>
                     
                     <div class="form-group">
-                        <label for="bairro">Bairro</label>
+                        <label for="Campo_cadastro">Bairro</label>
                         <input type="text" class="form-control bairro" id="bairro" name="bairro" 
                         placeholder="(Opcional)">
                     </div>
 
                     <div class="form-group">
-                        <label for="cidade">Cidade</label>
+                        <label for="Campo_cadastro">Cidade</label>
                         <input type="text" class="form-control cidade" id="cidade" name="cidade" 
                         placeholder="(Opcional)">
                     </div>
                     
                     <div class="form-group">
-                        <label for="cep">CEP (XXXXX-XXX)</label>
+                        <label for="Campo_cadastro">CEP (XXXXX-XXX)</label>
                         <input type="text" class="form-control cep" id="cep" name="cep" 
                         placeholder="(Opcional)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Campo_cadastro">Comentário</label>
+                        <input type="text" name="comentario" class="form-control comentario" id="comentario"
+                        placeholder="(Opcional)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Campo_cadastro">Aprovado</label>
+                        <input type="text" class="form-control aprovado" id="aprovado" 
+                        name="comentario" placeholder="(Obrigatório)">
                     </div>
 
                     <div class="col-md-12 text-center mb-3">
@@ -126,10 +103,7 @@
         </div>
         
         <!-- Rodapé -->
-        <footer class="navbar navbar-fixed-bottom bg-secondary text-white">
-            <div class="footer-copyright mx-auto py-3">2020 Caíque e João Pedro
-            </div>
-        </footer>
+        <jsp:include page="rodape.jsp" />
 
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/popper.min.js"></script>
@@ -152,7 +126,7 @@
 
                         login: { required: true, minlength: 3, maxlength: 20 },
 
-                        password: { required: true, minlength: 6, maxlength: 255 },
+                        senha: { required: true, minlength: 6, maxlength: 255 },
 
                         endereco: {minlength: 3, maxlength: 50 },
 
@@ -160,7 +134,11 @@
 
                         cidade: {minlength: 3, maxlength: 30 },
 
-                        cep: {minlength: 9, maxlength: 9 }
+                        cep: {minlength: 9, maxlength: 9 },
+
+                        comentario: { minlength: 3, maxlength: 255 },
+
+                        aprovado: { minlength: 1, maxlength: 1 }
 
                     },
                     messages: {
@@ -183,7 +161,7 @@
                         minlength: "3 caracteres no mínimo",
                         maxlength: "20 caracteres no máximo"},
 
-                        password: {required: "Obrigatória", 
+                        senha: {required: "Obrigatória", 
                         minlength: "Mínimo de 6 caracteres", 
                         maxlength: "Máximo de 255 caracteres" },
 
@@ -198,6 +176,11 @@
             
                         cep: {minlength: "O CEP deve ter 9 caracteres", 
                         maxlength: "O CEP deve ter 9 caracteres"},
+
+                        comentario: {minlength: "O comentário deve ter 3 caracteres",
+                        maxlength: "O comentário deve ter 255 caracteres"},
+
+                        aprovado: { minlength: "S/N", maxlength: "S/N" },
                     },
 
                     submitHandler: function(form) {

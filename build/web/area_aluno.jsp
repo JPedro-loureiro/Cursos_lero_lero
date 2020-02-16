@@ -1,17 +1,18 @@
-<%-- 
-    Document   : area_aluno
-    Created on : 12/02/2020, 13:30:22
-    Author     : Joao_
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Area do Aluno</title>
+        <jsp:include page="template/head.jsp" />
     </head>
+
     <body>
+
+        <!-- Navbar -->
+        <jsp:include page="template/navbar.jsp" />
+
         <h1>Aqui vai a Area do Aluno</h1>
+
+        <!-- Rodapé -->
+        <jsp:include page="template/rodape.jsp" />
     </body>
 </html>
