@@ -49,6 +49,7 @@ public class AlunoCursoTurmaDao {
             
             
             int aluno_id = matriculas.get(i).getAluno_id();
+            act.setId_aluno(aluno_id);
             act.setNome_aluno(alunoDao.getAlunoById(aluno_id).getNome());
             
             lst.add(act);

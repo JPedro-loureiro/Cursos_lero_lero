@@ -136,6 +136,32 @@ public List<Matricula> getMatriculasByTurma(Turma turma){
         
         return listaDeMatriculas;
     }
+
+public Matricula getMatriculaByTurmaEAluno(Turma turma, Aluno aluno){
+        Matricula matricula = new Matricula();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from matriculas where turma_id='" + turma.getId() + "' and aluno_id='" + aluno.getId() +"'");
+            if (rs.next()) {
+                matricula.setId(parseInt(rs.getString("id")));
+                matricula.setTurma_id(parseInt(rs.getString("turmas_id")));
+                matricula.setAluno_id(parseInt(rs.getString("alunos_id")));
+                
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    matricula.setData_matricula(format.parse(rs.getString("data_matricula")));
+                } catch (ParseException ex) {
+                    Logger.getLogger(MatriculaDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                matricula.setNota(parseFloat(rs.getString("nota")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MatriculaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return matricula;
+    }
     
     public void deleteMatricula(int matriculaId) {
         try {

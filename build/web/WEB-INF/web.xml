@@ -112,6 +112,10 @@
         <servlet-name>ServletRecebiveis</servlet-name>
         <servlet-class>PageServelts.ServletRecebiveis</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletAtribuirNota</servlet-name>
+        <servlet-class>PageServelts.ServletAtribuirNota</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletInserirAdmin</servlet-name>
         <url-pattern>/ServletInserirAdmin</url-pattern>
@@ -207,6 +211,10 @@
     <servlet-mapping>
         <servlet-name>ServletRecebiveis</servlet-name>
         <url-pattern>/ServletRecebiveis</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletAtribuirNota</servlet-name>
+        <url-pattern>/ServletAtribuirNota</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

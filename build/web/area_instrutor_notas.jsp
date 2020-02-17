@@ -1,3 +1,5 @@
+<%@page import="dao.MatriculaDao"%>
+<%@page import="model.AlunoCursoTurma"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
@@ -24,23 +26,34 @@
                 <h1 class="text-primary">Alunos por curso/turma</h1>
             </div>
 
-            <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-            <!-- <% List<Aluno> alunos = (List<Aluno>) request.getAttribute("alunos");
-                        for (Aluno i : alunos) { %> -->
+            <% List<AlunoCursoTurma> matriculas = (List<AlunoCursoTurma>) request.getAttribute("matriculas");
+                        for (AlunoCursoTurma i : matriculas) { %>
 
-                            <form class="py-3" id="form-alunos-curso" method="POST" action="">
                             
+                            <form class="py-3" id="form-aluno" method="POST" action="ServletAtribuirNota">
                                 <div class="form-group">
-                                    <label for="Campo_cadastro">Nota do aluno <%if (aluno != null) {%><%=aluno.getNome()%><%}%> da turma <%if (turma != null) {%><%=turma.getid()%><%}%></label>
-                                    <input type="text" name="instrutores_id" class="form-control instrutores_id" id="instrutores_id"
-                                        value="<%if (nota != null) {%><%=matricula.getNota()%><%}%>">
+                                    <label for="Campo_cadastro">Nota do aluno <%if (i.getNome_aluno() != null) {%><%=i.getNome_aluno()%><%}%> da turma <%=i.getId_turma()%></label>
+                                    <input type="text" name="nota" class="form-control instrutores_id" id="instrutores_id"
+                                        value="<%=i.getNota()%>">
+                                </div>
+                                
+                              
+                                <div class="form-group">
+                                    <label for="Campo_cadastro">id_aluno</label>
+                                    <input type="hidden" name="id_aluno" class="form-control instrutores_id" id="instrutores_id"
+                                        value="<%i.getId_aluno()%>">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="Campo_cadastro">id_turma</label>
+                                    <input type="hidden" name="id_turma" class="form-control instrutores_id" id="instrutores_id"
+                                           value="<%i.getId_turma()%>">
                                 </div>
                             
                                 <div class="col-md-12 text-center mb-3">
                                     <button type="submit" class=" btn btn-primary tx-tfm">Inserir no sistema</button>
                                 </div>
                             </form>
-
                         <%}%>
                     </tbody>
             </table>

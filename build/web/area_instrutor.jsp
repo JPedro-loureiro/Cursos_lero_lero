@@ -25,7 +25,7 @@
             <div class="btn-group btn-group-lg" role="group">
         
                 <a type="button" class="btn btn-outline-primary px-4" 
-                href="area_instrutor_notas.jsp">Alunos e notas</a>
+                href="ServletAtribuirNota?id_instrutor=<%=i.getId()%>">Alunos e notas</a>
                 
                 <a type="button" class="btn btn-outline-primary px-4" 
                 href="ServletRecebiveis?id_instrutor=<%=i.getId()%>">Valor a Receber</a>

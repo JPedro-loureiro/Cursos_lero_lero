@@ -11,10 +11,19 @@ package model;
  */
 public class AlunoCursoTurma {
     
+    int id_aluno;
     String nome_aluno;
     String nome_curso;
     int id_turma;
     float nota;
+
+    public int getId_aluno() {
+        return id_aluno;
+    }
+
+    public void setId_aluno(int id_aluno) {
+        this.id_aluno = id_aluno;
+    }
 
     public String getNome_aluno() {
         return nome_aluno;
