@@ -12,6 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -51,6 +52,9 @@ public class ServletInserirTurma extends HttpServlet {
         
         TurmaDao turmaDao = new TurmaDao();
         turmaDao.addTurma(nova_turma);
+        
+        RequestDispatcher rd = request.getRequestDispatcher("ver_turmas.jsp");
+        rd.forward(request, response);
     }
 
     /**

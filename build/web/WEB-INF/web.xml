@@ -72,6 +72,46 @@
         <servlet-name>ServletAlunoPorCurso</servlet-name>
         <servlet-class>PageServelts.ServletAlunoPorCurso</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletCursoPorInstrutor</servlet-name>
+        <servlet-class>PageServelts.ServletCursoPorInstrutor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletEditarAluno</servlet-name>
+        <servlet-class>PageServelts.ServletEditarAluno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletEditarCurso</servlet-name>
+        <servlet-class>PageServelts.ServletEditarCurso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletEditarInstrutor</servlet-name>
+        <servlet-class>PageServelts.ServletEditarInstrutor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletEditarTurma</servlet-name>
+        <servlet-class>PageServelts.ServletEditarTurma</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletMinhasNotas</servlet-name>
+        <servlet-class>PageServelts.ServletMinhasNotas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletTurmasDisponiveis</servlet-name>
+        <servlet-class>PageServelts.ServletTurmasDisponiveis</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletAlterarDadosCadastraisAluno</servlet-name>
+        <servlet-class>PageServelts.ServletAlterarDadosCadastraisAluno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletAlteraDadosCadastraisInstrutor</servlet-name>
+        <servlet-class>PageServelts.ServletAlteraDadosCadastraisInstrutor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletRecebiveis</servlet-name>
+        <servlet-class>PageServelts.ServletRecebiveis</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletInserirAdmin</servlet-name>
         <url-pattern>/ServletInserirAdmin</url-pattern>
@@ -127,6 +167,46 @@
     <servlet-mapping>
         <servlet-name>ServletAlunoPorCurso</servlet-name>
         <url-pattern>/ServletAlunoPorCurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCursoPorInstrutor</servlet-name>
+        <url-pattern>/ServletCursoPorInstrutor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletEditarAluno</servlet-name>
+        <url-pattern>/ServletEditarAluno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletEditarCurso</servlet-name>
+        <url-pattern>/ServletEditarCurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletEditarInstrutor</servlet-name>
+        <url-pattern>/ServletEditarInstrutor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletEditarTurma</servlet-name>
+        <url-pattern>/ServletEditarTurma</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletMinhasNotas</servlet-name>
+        <url-pattern>/ServletMinhasNotas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletTurmasDisponiveis</servlet-name>
+        <url-pattern>/ServletTurmasDisponiveis</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletAlterarDadosCadastraisAluno</servlet-name>
+        <url-pattern>/ServletAlterarDadosCadastraisAluno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletAlteraDadosCadastraisInstrutor</servlet-name>
+        <url-pattern>/ServletAlteraDadosCadastraisInstrutor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletRecebiveis</servlet-name>
+        <url-pattern>/ServletRecebiveis</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

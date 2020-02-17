@@ -9,6 +9,7 @@ import dao.CursoDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.Float.parseFloat;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,6 +45,9 @@ public class ServletInserirCurso extends HttpServlet {
         
         CursoDao cursoDao = new CursoDao();
         cursoDao.addCurso(novo_curso);
+        
+        RequestDispatcher rd = request.getRequestDispatcher("ver_cursos.jsp");
+        rd.forward(request, response);
     }
 
     /**

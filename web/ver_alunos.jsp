@@ -1,9 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.Aluno"%>
 
-<!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<!-- <%@page import="model.Aluno"%>
-
-<%@page import="java.util.List"%> -->
+<%@page import="java.util.List"%>
 
 <html lang="pt-br">
 
@@ -39,8 +37,7 @@
                 </thead>
                 
                 <tbody>
-                    <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                    <!-- <% List<Aluno> alunosAprovados = (List<Aluno>) request.getAttribute("alunosAprovados");
+                    <% List<Aluno> alunosAprovados = (List<Aluno>) request.getAttribute("alunosAprovados");
                         for (Aluno i : alunosAprovados) { %> 
                         <tr>
                             <th scope="row">
@@ -58,7 +55,7 @@
                             <td><%=i.getCep()%></td>
 
                             <td>
-                                <a href="">
+                                <a href="ServletVerAluno?action=apagar&id_aluno=<%=i.getId()%>">
                                     <button type="button" class="btn btn-primary">Editar</button>
                                 </a>
 
@@ -71,7 +68,7 @@
                                 </a>
                             </td>
                         </tr>
-                    <%}%> -->
+                    <%}%>
                 </tbody>
             </table>
         </div>

@@ -1,8 +1,7 @@
+<%@page import="model.Instrutor"%>
+<%@page import="model.CursoPorInstrutor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <%@page import="model.Aluno"%>
-
 <%@page import="java.util.List"%>
 
 <html lang="pt-br">
@@ -21,8 +20,7 @@
                 <h1 class="text-primary">Cursos e turmas por instrutor</h1>
             </div>
 
-            <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-            <form class="py-3" id="form-alunos-curso" method="POST" action="">
+            <form class="py-3" id="form-alunos-curso" method="POST" action="ServletCursoPorInstrutor">
 
                 <div class="form-group">
                     <label for="Campo_cadastro">id da turma</label>
@@ -34,6 +32,9 @@
                     <button type="submit" class=" btn btn-primary tx-tfm">Pesquisar</button>
                 </div>
             </form>
+            
+            <%Instrutor instrutor = (Instrutor) request.getAttribute("instrutor");%>
+            <%=instrutor.getNome()%>
 
             <table class="table table-responsive-md table-hover ">
 
@@ -45,29 +46,25 @@
                     </thead>
 
                     <tbody>
-                        <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                        <!-- <% List<Aluno> alunos = (List<Aluno>) request.getAttribute("alunos");
-                                    for (Aluno i : alunos) { %>
+                        <% List<CursoPorInstrutor> cursos = (List<CursoPorInstrutor>) request.getAttribute("cursos");
+                                    for (CursoPorInstrutor i : cursos) { %>
                             <tr>
                                 <th scope="row">
-                                    <td><%=i.getAluno_id()%></td>
+                                    <td><%=i.getId_turma()%></td>
                                 </th>
 
-                                <td><%=i.getTurma_id()%></td>
-                                <td><%=i.getAluno_id()%></td>
-                                <td><%=i.getData_matricula()%></td>
-                                <td><%=i.getNota()%></td>
+                                <td><%=i.getId_turma()%></td>
+                                <td><%=i.getNome_curso()%></td>
                             </tr>
-                    <%}%> -->
+                    <%}%>
                 </tbody>
             </table>
         </div>
 
         <div class="container">
-            <div class="text-center py-5">
-                <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                <!-- <h3 class="text-primary">Valor total: <% IMPLEMENTAR %></h1> -->
-            </div>
+                
+                <h3 class="text-primary">Valor total: <%=instrutor.getValorAReceber(instrutor.getId())%></h1>
+            
         </div>
 
         <!-- Rodapé -->

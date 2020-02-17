@@ -1,3 +1,4 @@
+<%@page import="model.TurmasDisponiveis"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@page import="model.Turma"%>
@@ -36,27 +37,27 @@
                     </thead>
 
                     <tbody>
-                        <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                        <!-- <% List<Aluno> alunos = (List<Aluno>) request.getAttribute("alunos");
-                                        for (Aluno i : alunos) { %>
+                        
+                        <% List<TurmasDisponiveis> turmas = (List<TurmasDisponiveis>) request.getAttribute("turmas_disponiveis");
+                                        for (TurmasDisponiveis i : turmas) { %>
                             <tr>
                                 <th scope="row">
-                                    <%=i.getId()%>
+                                    <%=i.getId_turma()%>
                                 </th>
 
-                                <td><%=NOME DO INSTRUTOR()%></td>
-                                <td><%=NOME DO CURSO()%></td>
+                                <td><%=i.getNome_instrutor()%></td>
+                                <td><%=i.getNome_curso()%></td>
                                 <td><%=i.getData_inicio()%></td>
                                 <td><%=i.getData_fim()%></td>
                                 <td><%=i.getCarga_horaria()%></td>
 
                                 <td>
-                                    <a href="AÇÃO OU LINK">
+                                    <a href="ServletTurmasDisponiveis?action=matricular&turma=<%=i.getId_turma()%>">
                                         <button type="button" class="btn btn-primary">Matricule-se</button>
                                     </a>
                                 </td>
                             </tr>
-                        <%}%> -->
+                        <%}%>
                     </tbody>
             </table>
         </div>

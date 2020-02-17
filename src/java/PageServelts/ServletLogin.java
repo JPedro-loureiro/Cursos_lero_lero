@@ -5,6 +5,8 @@
  */
 package PageServelts;
 
+import dao.AlunoDao;
+import dao.InstrutorDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -13,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Aluno;
+import model.Instrutor;
 
 /**
  *
@@ -31,8 +35,14 @@ public class ServletLogin extends HttpServlet {
         if("adm".equals(tipo_usuario)){
             forward = "painel_controle.jsp";
         } else if("inst".equals(tipo_usuario)){
+            InstrutorDao instrutorDao = new InstrutorDao();
+            Instrutor instrutor = instrutorDao.getInstrutorByLogin(login);
+            request.setAttribute("instrutor", instrutor);
             forward = "area_instrutor.jsp";
         } else {
+            AlunoDao alunoDao = new AlunoDao();
+            Aluno aluno = alunoDao.getAlunoByLogin(login);
+            request.setAttribute("aluno", aluno);
             forward = "area_aluno.jsp";
         }
         

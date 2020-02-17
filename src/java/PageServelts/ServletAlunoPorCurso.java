@@ -60,7 +60,10 @@ public class ServletAlunoPorCurso extends HttpServlet {
         Turma turma = turmaDao.getTurmaById(turma_id);
         
         AlunoCursoTurmaDao actDao = new AlunoCursoTurmaDao();
-        request.setAttribute("alunos", actDao.getAll(turma));
+        List<AlunoCursoTurma> lst = actDao.getAll(turma);
+        request.setAttribute("alunos", lst);
+        request.setAttribute("curso", lst.get(0).getNome_curso());
+        request.setAttribute("turma", turma_id);
         
         RequestDispatcher rd = request.getRequestDispatcher("ver_alunos_por_curso_turma.jsp");
         rd.forward(request, response);

@@ -48,6 +48,12 @@ public class ServletVerInstrutor extends HttpServlet {
             //Atualizando o atributo listAlunos
             request.setAttribute("listInstrutores", instrutorDao.getAllInstrutores());
             
+        } else if(action.equals("editar")){
+            int id_instrutor = parseInt(request.getParameter("id_instrutor"));
+            request.setAttribute("instrutor", instrutorDao.getInstrutorById(id_instrutor));
+            
+            RequestDispatcher rd = request.getRequestDispatcher("editar_instrutor.jsp");
+            rd.forward(request, response);
         }
         RequestDispatcher rd = request.getRequestDispatcher("ver_instrutores.jsp");
         rd.forward(request, response);

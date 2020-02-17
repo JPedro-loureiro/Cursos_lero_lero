@@ -8,6 +8,7 @@ package PageServelts;
 import dao.AdministradorDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,11 +39,11 @@ public class ServletInserirAdmin extends HttpServlet {
         novo_admin.setLogin(request.getParameter("login"));
         novo_admin.setSenha(request.getParameter("password"));
         
-        /*PrintWriter out = response.getWriter();
-        out.println("Teste classe: " + novo_admin.getNome());*/
-        
         AdministradorDao adminDao = new AdministradorDao();
         adminDao.addAdminstrador(novo_admin);
+        
+        RequestDispatcher rd = request.getRequestDispatcher("inserir_administrador.jsp");
+        rd.forward(request, response);
     }
 
     /**

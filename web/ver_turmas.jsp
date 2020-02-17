@@ -1,9 +1,6 @@
 <%@page import="model.Turma"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <%@page import="model.Aluno"%>
-
 <%@page import="java.util.List"%>
 
 <html lang="pt-br">
@@ -36,8 +33,8 @@
                     </thead>
 
                     <tbody>
-                        <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                        <!-- <% List<Turma> turmas = (List<Turma>) request.getAttribute("listTurmas");
+                        
+                        <% List<Turma> turmas = (List<Turma>) request.getAttribute("listTurmas");
                                     for (Turma i : turmas) { %>
                         <tr>
                             <th scope="row">
@@ -51,7 +48,7 @@
                             <td><%=i.getCarga_horaria()%></td>
 
                             <td>
-                                <a href="">
+                                <a href="editar_turma.jsp">
                                     <button type="button" class="btn btn-primary">Editar</button>
                                 </a>
 
@@ -64,7 +61,7 @@
                                 </a>
                             </td>
                         </tr>
-                    <%}%> -->
+                    <%}%>
                 </tbody>
             </table>
         </div>

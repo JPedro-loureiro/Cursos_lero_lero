@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -53,6 +54,9 @@ public class ServletInserirMatricula extends HttpServlet {
         
         MatriculaDao matriculaDao = new MatriculaDao();
         matriculaDao.addMatricula(nova_matricula);
+        
+        RequestDispatcher rd = request.getRequestDispatcher("inserir_matricula.jsp");
+        rd.forward(request, response);
     }
 
     /**

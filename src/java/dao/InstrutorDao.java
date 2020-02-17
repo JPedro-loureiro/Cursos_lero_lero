@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Aluno;
 import model.Instrutor;
 import util.DataBaseUtil;
 
@@ -47,6 +46,26 @@ public class InstrutorDao {
         } catch (SQLException e){
             e.printStackTrace();
         }
+    }
+    
+    public Instrutor getInstrutorByLogin(String login){
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from instrutores where login='" + login + "'");
+            if(rs.next()) {
+                Instrutor instrutor = new Instrutor();
+                instrutor.setId(parseInt(rs.getString("id")));
+                instrutor.setNome(rs.getString("nome"));
+                instrutor.setEmail(rs.getString("email"));
+                instrutor.setLogin(rs.getString("login"));
+                instrutor.setValor_hora(parseInt(rs.getString("valor_hora")));
+                instrutor.setExperiencia(rs.getString("experiencia"));
+                return instrutor;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     public Instrutor getInstrutorById(int instrutor_id){

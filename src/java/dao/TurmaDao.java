@@ -5,7 +5,6 @@
  */
 package dao;
 
-import PageServelts.ServletInserirMatricula;
 import static java.lang.Integer.parseInt;
 import java.sql.Connection;
 import java.sql.Date;
@@ -15,10 +14,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Instrutor;
 import model.Turma;
 import util.DataBaseUtil;
 
@@ -78,11 +79,69 @@ public class TurmaDao {
         return null;
     }
     
+    public List<Turma> getTurmasByInstrutor(Instrutor instrutor) {
+        List<Turma> listaDeTurmas = new ArrayList<Turma>();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from turmas where instrutores_id='" + instrutor.getId() + "'");
+            while (rs.next()) {
+                Turma turma = new Turma();
+                turma.setId(parseInt(rs.getString("id")));
+                turma.setInstrutor_id(parseInt(rs.getString("intrutores_id")));
+                turma.setCurso_id(parseInt(rs.getString("cursos_id")));
+                
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    turma.setData_inicio(format.parse(rs.getString("data_inicio")));
+                    turma.setData_fim(format.parse(rs.getString("data_final")));
+                } catch (ParseException ex) {
+                    Logger.getLogger(TurmaDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                turma.setCarga_horaria(parseInt(rs.getString("carga_horaria")));
+                listaDeTurmas.add(turma);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaDeTurmas;
+    }
+    
     public List<Turma> getAllTurmas() {
         List<Turma> listaDeTurmas = new ArrayList<Turma>();
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from administrador");
+            ResultSet rs = stmt.executeQuery("select * from turmas");
+            while (rs.next()) {
+                Turma turma = new Turma();
+                turma.setId(parseInt(rs.getString("id")));
+                turma.setInstrutor_id(parseInt(rs.getString("intrutores_id")));
+                turma.setCurso_id(parseInt(rs.getString("cursos_id")));
+                
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    turma.setData_inicio(format.parse(rs.getString("data_inicio")));
+                    turma.setData_fim(format.parse(rs.getString("data_final")));
+                } catch (ParseException ex) {
+                    Logger.getLogger(TurmaDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                turma.setCarga_horaria(parseInt(rs.getString("carga_horaria")));
+                listaDeTurmas.add(turma);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listaDeTurmas;
+    }
+    
+    public List<Turma> getTurmasByDate(LocalDate data) {
+        List<Turma> listaDeTurmas = new ArrayList<Turma>();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from turmas where data_inicio > '"+ data +"'");
             while (rs.next()) {
                 Turma turma = new Turma();
                 turma.setId(parseInt(rs.getString("id")));

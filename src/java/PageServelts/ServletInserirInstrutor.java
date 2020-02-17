@@ -8,6 +8,7 @@ package PageServelts;
 import dao.InstrutorDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,6 +45,9 @@ public class ServletInserirInstrutor extends HttpServlet {
         
         InstrutorDao instrutorDao = new InstrutorDao();
         instrutorDao.addInstrutor(novo_instrutor);
+        
+        RequestDispatcher rd = request.getRequestDispatcher("ver_instrutor.jsp");
+        rd.forward(request, response);
     }
 
     /**

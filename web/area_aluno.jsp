@@ -13,21 +13,22 @@
         <!-- Navbar -->
         <jsp:include page="navbar.jsp" />
 
-        <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-        <!-- <% Aluno i = (Aluno) request.getAttribute("aluno"); %> -->
+        <% Aluno i = (Aluno) request.getAttribute("aluno"); %>
 
         <div class="container pt-5">
             <div class="text-center pt-5">
-                <h1 class="text-primary">Bem vindo, <%if (a != null) {%><%=i.getNome()%><%}%> </h1>
+                <h1 class="text-primary">Bem vindo, <%if (i != null) {%><%=i.getNome()%><%}%> </h1>
             </div>
         </div>
 
         <div class="row d-flex justify-content-center">
             <div class="btn-group btn-group-lg" role="group">
         
+                <a type="button" class="btn btn-outline-primary px-4" 
+                href="ServletTurmasDisponiveis">Turmas Disponíneis</a>
 
                 <a type="button" class="btn btn-outline-primary px-4" 
-                href="turmas_disponiveis.jsp">Turmas disponíveis</a>
+                href="ServletMinhasNotas?id=<%=i.getId()%>">Minhas Notas</a>
                 
                 <a type="button" class="btn btn-outline-primary px-4" 
                 href="">Subir foto (não disponível)</a>
@@ -42,8 +43,7 @@
 
         <div class="myform form py-5">
 
-            <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-            <!-- <form class="py-3" id="form-aluno" method="POST" action=""> -->
+            <form class="py-3" id="form-aluno" method="POST" action="ServletAlterarDadosCadastraisAluno">
         
                 <div class="form-group">
                     <label for="Campo_cadastro">CPF</label>
@@ -100,7 +100,7 @@
                 </div>
         
                 <div class="col-md-12 text-center mb-3">
-                    <button type="submit" class=" btn btn-primary tx-tfm">Inserir no sistema</button>
+                    <button type="submit" class=" btn btn-primary tx-tfm">Enviar</button>
                 </div>
             </form>
         </div>

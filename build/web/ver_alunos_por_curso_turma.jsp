@@ -35,8 +35,11 @@
                     <button type="submit" class=" btn btn-primary tx-tfm">Pesquisar</button>
                 </div>
             </form>
-
             
+            <%=request.getAttribute("curso")%>
+            <%=request.getAttribute("turma")%>
+
+            <table class="table table-responsive-md table-hover ">
 
                 <thead-light>
                     <tr>
@@ -57,14 +60,12 @@
                             </th>
 
                             <td><%=i.getNome_aluno()%></td>
-                            <td><%=i.getNome_curso()%></td>
-                            <td><%=i.getId_turma()%></td>
                             <td><%=i.getNota()%></td>
 
                         </tr>
                     <%}%> -->
                 
-            
+            </table>
         
 
         <!-- Rodapé -->

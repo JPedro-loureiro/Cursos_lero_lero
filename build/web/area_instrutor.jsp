@@ -13,12 +13,11 @@
     <!-- Navbar -->
     <jsp:include page="navbar.jsp" />
 
-    <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-    <!-- <% Instrutor i = (Instrutor) request.getAttribute("instrutor"); %> -->
+    <% Instrutor i = (Instrutor) request.getAttribute("instrutor"); %>
 
     <div class="container pt-5">
         <div class="text-center pt-5">
-            <h1 class="text-primary">Bem vindo, instrutor <%if (a != null) {%><%=i.getNome()%><%}%> </h1>
+            <h1 class="text-primary">Bem vindo, instrutor <%if (i != null) {%><%=i.getNome()%><%}%> </h1>
             </div>
         </div>
 
@@ -29,7 +28,7 @@
                 href="area_instrutor_notas.jsp">Alunos e notas</a>
                 
                 <a type="button" class="btn btn-outline-primary px-4" 
-                href="area_instrutor_valores.jsp">Valores</a>
+                href="ServletRecebiveis?id_instrutor=<%=i.getId()%>">Valor a Receber</a>
             </div>
         </div>
 
@@ -41,8 +40,7 @@
 
         <div class="myform form py-5">
 
-            <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-            <!-- <form class="py-3" id="form-instrutor" method="POST" action=""> -->
+            <form class="py-3" id="form-instrutor" method="POST" action="ServletAlteraDadosCadastraisInstrutor">
         
                 <div class="form-group">
                     <label for="Campo_cadastro">Nome</label>
@@ -71,7 +69,7 @@
                 <div class="form-group">
                     <label for="Campo_cadastro">Experiência</label>
                     <input type="text" name="experiencia" class="form-control experiencia" id=" 
-                    experiencia"value="<%if (i != null) {%><%=i.getExpericencia()%><%}%>">
+                    experiencia"value="<%if (i != null) {%><%=i.getExperiencia()%><%}%>">
                 </div>
         
                 <div class="col-md-12 text-center mb-3">

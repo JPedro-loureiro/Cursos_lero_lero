@@ -1,9 +1,6 @@
 <%@page import="model.Curso"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <%@page import="model.Aluno"%>
-
 <%@page import="java.util.List"%>
 
 <html lang="pt-br">
@@ -36,8 +33,7 @@
                     </thead>
 
                     <tbody>
-                        <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                        <!-- <% List<Curso> cursos = (List<Curso>) request.getAttribute("listCursos");
+                        <% List<Curso> cursos = (List<Curso>) request.getAttribute("listCursos");
                             for (Curso i : cursos) { %>
                         <tr>
                             <th scope="row">
@@ -51,7 +47,7 @@
                             <td><%=i.getPreco()%></td>
 
                             <td>
-                                <a href="">
+                                <a href="ServletVerCurso?action=editar&id_curso=<%=i.getId()%>">
                                     <button type="button" class="btn btn-primary">Editar</button>
                                 </a>
 
@@ -64,7 +60,7 @@
                                 </a>
                             </td>
                         </tr>
-                    <%}%> -->
+                    <%}%>
                 </tbody>
             </table>
         </div>

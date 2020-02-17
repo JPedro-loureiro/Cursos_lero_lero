@@ -48,6 +48,12 @@ public class ServletVerTurma extends HttpServlet {
             //Atualizando o atributo listAlunos
             request.setAttribute("listInstrutores", turmaDao.getAllTurmas());
             
+        } else if(action.equals("editar")){
+            int id_turma = parseInt(request.getParameter("id_turma"));
+            request.setAttribute("turma", turmaDao.getTurmaById(id_turma));
+            
+            RequestDispatcher rd = request.getRequestDispatcher("editar_turma.jsp");
+            rd.forward(request, response);
         }
         RequestDispatcher rd = request.getRequestDispatcher("ver_turmas.jsp");
         rd.forward(request, response);

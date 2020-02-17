@@ -52,6 +52,12 @@ public class ServletVerAluno extends HttpServlet {
             //Atualizando o atributo listAlunos
             request.setAttribute("alunosAprovados", alunoDao.getAllAlunosAprovados());
             
+        } else if(action.equals("editar")){
+            int id_aluno = parseInt(request.getParameter("id_aluno"));
+            request.setAttribute("aluno", alunoDao.getAlunoById(id_aluno));
+            
+            RequestDispatcher rd = request.getRequestDispatcher("editar_aluno.jsp");
+            rd.forward(request, response);
         }
         RequestDispatcher rd = request.getRequestDispatcher("ver_alunos.jsp");
         rd.forward(request, response);

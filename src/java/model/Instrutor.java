@@ -5,6 +5,11 @@
  */
 package model;
 
+import dao.CursoDao;
+import dao.InstrutorDao;
+import dao.TurmaDao;
+import java.util.List;
+
 /**
  *
  * @author Joao_
@@ -73,5 +78,27 @@ public class Instrutor {
 
     public void setExperiencia(String experiencia) {
         this.experiencia = experiencia;
+    }
+    
+    public float getValorAReceber(int id_instrutor){
+        InstrutorDao instrutorDao = new InstrutorDao();
+        Instrutor instrutor = instrutorDao.getInstrutorById(id_instrutor);
+        float valor_hora = instrutor.getValor_hora();
+        
+        TurmaDao turmaDao = new TurmaDao();
+        List<Turma> turmas = turmaDao.getTurmasByInstrutor(instrutor);
+        
+        CursoDao cursoDao = new CursoDao();
+        Curso curso;
+        int curso_id;
+        float valor_total = 0;
+        
+        for(int i=0; i<turmas.size(); i++){
+            curso_id = turmas.get(i).getCurso_id();
+            curso = cursoDao.getCursoById(curso_id);
+            
+            valor_total += valor_hora * curso.getCarga_horaria();
+        }
+        return valor_hora;
     }
 }
