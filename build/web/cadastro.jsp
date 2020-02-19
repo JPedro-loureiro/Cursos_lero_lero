@@ -40,6 +40,12 @@
                   <input type="email" name="email"  class="form-control" id="email" placeholder="(Obrigatório)">
                 </div>
 
+                
+                <div class="form-group">
+                  <label for="Campo_cadastro">Login</label>
+                  <input type="text" name="login"  class="form-control" id="login" placeholder="(Obrigatório)">
+                </div>
+                
                 <div class="form-group">
                   <label for="Campo_cadastro">Senha (mínimo de 6 dígitos)</label>
                   <input type="password" name="password" id="password"  class="form-control password" placeholder="(Obrigatória)">
@@ -55,7 +61,7 @@
 
                 <div class="col-md-12 ">
                   <div class="form-group">
-                      <p class="text-center">Já tem uma conta? <a href="login.html" id="signin">Login</a></p>
+                      <p class="text-center">Já tem uma conta? <a href="login.jsp" id="signin">Login</a></p>
                   </div>
                 </div>
 
@@ -68,12 +74,6 @@
     <!-- Rodapé -->
     <jsp:include page="rodape.jsp" />
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="js/validate_traducao.js"></script>
-
     <script>
       $(document).ready(function() {
         $("#form-cadastro").validate({
@@ -84,6 +84,8 @@
             cpf: { required: true, minlength: 11, maxlength:11, digits: true },
 
             email: { required: true, maxlength: 50 },
+            
+            login: { required: true, minlenght: 3},
 
             password: { required: true, minlength: 6, maxlength: 255 }
 
@@ -100,6 +102,9 @@
 
             email: {required: "Obrigatório", 
             maxlength: "50 caracteres no máximo"},
+        
+            login: {required: "Obrigatório",
+            maxlenght: "3 caracteres no mínimo"},
 
             password: {required: "Obrigatória", 
             minlength: "6 caracteres no mínimo", 

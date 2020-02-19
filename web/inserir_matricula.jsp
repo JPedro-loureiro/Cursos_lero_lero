@@ -21,7 +21,7 @@
           </div>
         </div>
 
-        <form class="py-3" id="form-mat" method="POST" action="ServletInserirMatricula">
+        <form class="py-3 px-5" id="form-mat" method="POST" action="ServletInserirMatricula">
 
           <div class="form-group">
             <label for="Campo_cadastro">id da turma</label>

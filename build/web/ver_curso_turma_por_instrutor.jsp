@@ -15,6 +15,10 @@
         <!-- Navbar -->
         <jsp:include page="navbar_administrador.jsp" />
 
+        <div class="text-center py-3">
+            <h3 class="text-primary"> </h3>
+        </div>
+        
         <div class="container">
             <div class="text-center py-5">
                 <h1 class="text-primary">Cursos e turmas por instrutor</h1>
@@ -50,10 +54,9 @@
                                     for (CursoPorInstrutor i : cursos) { %>
                             <tr>
                                 <th scope="row">
-                                    <td><%=i.getId_turma()%></td>
+                                   <%=i.getId_turma()%>
                                 </th>
 
-                                <td><%=i.getId_turma()%></td>
                                 <td><%=i.getNome_curso()%></td>
                             </tr>
                     <%}%>

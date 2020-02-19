@@ -46,6 +46,29 @@ public class AlunoDao {
             preparedStatement.setString(8, aluno.getCidade());
             preparedStatement.setString(9, aluno.getBairro());
             preparedStatement.setString(10, aluno.getCep());
+            preparedStatement.setString(11, aluno.getAprovado());
+            
+            preparedStatement.executeUpdate();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void cadastrarAluno(Aluno aluno){
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into "
+                    + "alunos(cpf, nome, email, celular, login, senha, endereco, cidade, bairro, cep, aprovado) "
+                    + "values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            preparedStatement.setString(1, aluno.getCpf());
+            preparedStatement.setString(2, aluno.getNome());
+            preparedStatement.setString(3, aluno.getEmail());
+            preparedStatement.setString(4, aluno.getCelular());
+            preparedStatement.setString(5, aluno.getLogin());
+            preparedStatement.setString(6, aluno.getSenha());
+            preparedStatement.setString(7, aluno.getEndereco());
+            preparedStatement.setString(8, aluno.getCidade());
+            preparedStatement.setString(9, aluno.getBairro());
+            preparedStatement.setString(10, aluno.getCep());
             preparedStatement.setString(11, "N");
             
             preparedStatement.executeUpdate();

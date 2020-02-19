@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <form class="py-3" id="form-curso" method="POST" action="ServletEditarCurso">
+            <form class="py-3 px-5" id="form-curso" method="POST" action="ServletEditarCurso">
 
                 <div class="form-group">
                     <label for="Campo_cadastro">Nome do curso</label>

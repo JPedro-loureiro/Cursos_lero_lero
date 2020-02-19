@@ -35,7 +35,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                       
                       <div class="btn-group">
-                        <a class="btn btn-outline-success" href="login.html" role="button">Inscreva-se</a>
+                        <a class="btn btn-outline-success" href="login.jsp" role="button">Inscreva-se</a>
                       </div>
                     </div>
                   </div>
@@ -56,7 +56,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                       
                       <div class="btn-group">
-                        <a class="btn btn-outline-success" href="login.html" role="button">Inscreva-se</a>
+                        <a class="btn btn-outline-success" href="login.jsp" role="button">Inscreva-se</a>
                       </div>
                     </div>
                   </div>
@@ -77,7 +77,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                       
                       <div class="btn-group">
-                        <a class="btn btn-outline-success" href="login.html" role="button">Inscreva-se</a>
+                        <a class="btn btn-outline-success" href="login.jsp" role="button">Inscreva-se</a>
                       </div>
                     </div>
                   </div>
@@ -98,7 +98,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                       
                       <div class="btn-group">
-                        <a class="btn btn-outline-success" href="login.html" role="button">Inscreva-se</a>
+                        <a class="btn btn-outline-success" href="login.jsp" role="button">Inscreva-se</a>
                       </div>
                     </div>
                   </div>
@@ -119,7 +119,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                       
                       <div class="btn-group">
-                        <a class="btn btn-outline-success" href="login.html" role="button">Inscreva-se</a>
+                        <a class="btn btn-outline-success" href="login.jsp" role="button">Inscreva-se</a>
                       </div>
                     </div>
                   </div>
@@ -140,7 +140,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                       
                       <div class="btn-group">
-                        <a class="btn btn-outline-success" href="login.html" role="button">Inscreva-se</a>
+                        <a class="btn btn-outline-success" href="login.jsp" role="button">Inscreva-se</a>
                       </div>
                     </div>
                   </div>
@@ -161,7 +161,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                       
                       <div class="btn-group">
-                        <a class="btn btn-outline-success" href="login.html" role="button">Inscreva-se</a>
+                        <a class="btn btn-outline-success" href="login.jsp" role="button">Inscreva-se</a>
                       </div>
                     </div>
                   </div>
@@ -182,7 +182,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                       
                       <div class="btn-group">
-                        <a class="btn btn-outline-success" href="login.html" role="button">Inscreva-se</a>
+                        <a class="btn btn-outline-success" href="login.jsp" role="button">Inscreva-se</a>
                       </div>
                     </div>
                   </div>
@@ -203,7 +203,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                       
                       <div class="btn-group">
-                        <a class="btn btn-outline-success" href="login.html" role="button">Inscreva-se</a>
+                        <a class="btn btn-outline-success" href="login.jsp" role="button">Inscreva-se</a>
                       </div>
                     </div>
                   </div>
@@ -218,8 +218,5 @@
     <!-- Rodapé -->
     <jsp:include page="rodape.jsp" />
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

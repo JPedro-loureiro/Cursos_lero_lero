@@ -2,7 +2,6 @@
 <%@page import="model.AlunoCursoTurma"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <%@page import="model.Aluno"%>
 <%@page import="model.Matricula"%>
 <%@page import="model.Turma"%>
@@ -21,7 +20,7 @@
         <!-- Navbar -->
         <jsp:include page="navbar_administrador.jsp" />
 
-        <div class="container">
+        <div class="container pt-5">
             <div class="text-center py-5">
                 <h1 class="text-primary">Alunos por curso/turma</h1>
             </div>
@@ -41,13 +40,13 @@
                                 <div class="form-group">
                                     <label for="Campo_cadastro">id_aluno</label>
                                     <input type="hidden" name="id_aluno" class="form-control instrutores_id" id="instrutores_id"
-                                        value="<%i.getId_aluno()%>">
+                                        value="<%i.getId_aluno();%>">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="Campo_cadastro">id_turma</label>
                                     <input type="hidden" name="id_turma" class="form-control instrutores_id" id="instrutores_id"
-                                           value="<%i.getId_turma()%>">
+                                           value="<%i.getId_turma();%>">
                                 </div>
                             
                                 <div class="col-md-12 text-center mb-3">

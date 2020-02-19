@@ -34,16 +34,18 @@ public class ServletAlteraDadosCadastraisInstrutor extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Instrutor instrutor = new Instrutor();
+        String login = (String) request.getSession().getAttribute("userLogin");
+        InstrutorDao instrutorDao = new InstrutorDao();
+        Instrutor instrutor = instrutorDao.getInstrutorByLogin(login);
+        
         instrutor.setNome(request.getParameter("nome"));
         instrutor.setEmail(request.getParameter("email"));
         instrutor.setValor_hora(parseInt(request.getParameter("valor_hora")));
         instrutor.setLogin(request.getParameter("login"));
-        instrutor.setSenha(request.getParameter("password"));
         instrutor.setExperiencia(request.getParameter("experiencia"));
         
-        InstrutorDao instrutorDao = new InstrutorDao();
         instrutorDao.updateInstrutor(instrutor);
+       
         
         request.setAttribute("instrutor", instrutor);
         

@@ -3,13 +3,13 @@
 <html lang="pt-br">
 
   <head>
-    <jsp:include page="template/head.jsp" />
+    <jsp:include page="head.jsp" />
   </head>
 
   <body>
 
     <!-- Navbar -->
-    <jsp:include page="template/navbar.jsp" />
+    <jsp:include page="navbar.jsp" />
 
     <section class="cursos py-5">
 
@@ -57,11 +57,7 @@
     </section>
     
     <!-- Rodapé -->
-    <jsp:include page="template/rodape.jsp" />
-
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <jsp:include page="rodape.jsp" />
 
   </body>
 </html>

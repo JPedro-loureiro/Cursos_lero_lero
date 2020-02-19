@@ -20,7 +20,7 @@
                 </li>
 
                 <li class="nav-item disabled">
-                    <a class="nav-link" href="tabelas.jsp">Painel de controle </a>
+                    <a class="nav-link" href="painel_controle.jsp">Painel de controle </a>
                 </li>
             </ul>
 

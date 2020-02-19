@@ -14,6 +14,10 @@
         <!-- Navbar -->
         <jsp:include page="navbar_administrador.jsp" />
 
+        <div class="text-center py-3">
+            <h3 class="text-primary"> </h3>
+        </div>
+        
         <div class="container">
             <div class="text-center py-5">
                 <h1 class="text-primary">Alunos</h1>
@@ -62,10 +66,7 @@
                                 <a href="ServletVerAluno?action=apagar&id_aluno=<%=i.getId()%>">
                                     <button type="button" class="btn btn-danger">Apagar</button>
                                 </a>
-                    
-                                <a href="inserir_aluno.jsp">
-                                    <button type="button" class="btn btn-danger">Incluir</button>
-                                </a>
+   
                             </td>
                         </tr>
                     <%}%>

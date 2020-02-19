@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <form class="py-3" id="form-turma" method="POST" action="ServletEditarTurma">
+            <form class="py-3 px-5" id="form-turma" method="POST" action="ServletEditarTurma">
 
                 <div class="form-group">
                     <label for="Campo_cadastro">id do instrutor</label>

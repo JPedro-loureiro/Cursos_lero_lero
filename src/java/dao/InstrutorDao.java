@@ -58,6 +58,7 @@ public class InstrutorDao {
                 instrutor.setNome(rs.getString("nome"));
                 instrutor.setEmail(rs.getString("email"));
                 instrutor.setLogin(rs.getString("login"));
+                instrutor.setSenha(rs.getString("senha"));
                 instrutor.setValor_hora(parseInt(rs.getString("valor_hora")));
                 instrutor.setExperiencia(rs.getString("experiencia"));
                 return instrutor;
@@ -78,6 +79,7 @@ public class InstrutorDao {
                 instrutor.setNome(rs.getString("nome"));
                 instrutor.setEmail(rs.getString("email"));
                 instrutor.setLogin(rs.getString("login"));
+                instrutor.setSenha(rs.getString("senha"));
                 instrutor.setValor_hora(parseInt(rs.getString("valor_hora")));
                 instrutor.setExperiencia(rs.getString("experiencia"));
                 return instrutor;
@@ -125,8 +127,7 @@ public class InstrutorDao {
     public void updateInstrutor(Instrutor instrutor) {
         try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("update instrutores set nome=?, email=?, valor_hora=?,"
-                            + " login=?, senha=?, experiencia=? where id=?");
+                    .prepareStatement("update instrutores set nome=?, email=?, valor_hora=?, login=?, senha=?, experiencia=? where id=?");
             // Parameters start with 1
             preparedStatement.setString(1, instrutor.getNome());
             preparedStatement.setString(2, instrutor.getEmail());

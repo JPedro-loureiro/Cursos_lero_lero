@@ -3,13 +3,13 @@
 <html lang="pt-br">
 
   <head>
-    <jsp:include page="template/head.jsp" />
+    <jsp:include page="head.jsp" />
   </head>
 
   <body>
 
     <!-- Navbar -->
-    <jsp:include page="template/navbar.jsp" />
+    <jsp:include page="navbar.jsp" />
 
     <div class="text-center py-5">
       <h1 class="display-4 text-primary pt-5">Sobre nós</h1>
@@ -50,11 +50,12 @@
 
     </div>
 
+    <div class="text-center py-5">
+      <h1 class="display-4 text-primary pt-5"> </h1>
+    </div>
+    
     <!-- Rodapé -->
-    <jsp:include page="template/rodape.jsp" />
+    <jsp:include page="rodape.jsp" />
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

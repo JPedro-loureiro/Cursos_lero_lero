@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                <form class="py-3" id="form-aluno" method="POST" action="ServletInserirAluno">
+                <form class="py-3 px-5" id="form-aluno" method="POST" action="ServletInserirAluno">
                     
                     <div class="form-group">
                         <label for="Campo_cadastro">CPF</label>
@@ -92,9 +92,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="Campo_cadastro">Aprovado (s/n)</label>
+                        <label for="Campo_cadastro">Aprovado (S/N)</label>
                         <input type="text" class="form-control aprovado" id="aprovado" 
-                        name="comentario" placeholder="(Obrigatório)">
+                        name="aprovado" placeholder="(Obrigatório)">
                     </div>
 
                     <div class="col-md-12 text-center mb-3">

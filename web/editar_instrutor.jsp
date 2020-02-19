@@ -26,8 +26,8 @@
                 </div>
             </div>
 
-            <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-            <form class="py-3" id="form-instrutor" method="POST" action="ServletEditarInstrutor">
+
+            <form class="py-3 px-5" id="form-instrutor" method="POST" action="ServletEditarInstrutor">
 
                 <div class="form-group">
                     <label for="Campo_cadastro">Nome</label>

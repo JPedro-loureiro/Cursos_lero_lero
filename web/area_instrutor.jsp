@@ -16,7 +16,7 @@
     <% Instrutor i = (Instrutor) request.getAttribute("instrutor"); %>
 
     <div class="container pt-5">
-        <div class="text-center pt-5">
+        <div class="text-center py-5">
             <h1 class="text-primary">Bem vindo, instrutor <%if (i != null) {%><%=i.getNome()%><%}%> </h1>
             </div>
         </div>
@@ -32,13 +32,13 @@
             </div>
         </div>
 
-        <div class="container pt-5">
+        <div class="container">
             <div class="text-center pt-5">
                 <h3 class="text-secondary">Meus dados </h3>
             </div>
         </div>
 
-        <div class="myform form py-5">
+        <div class="myform form py-5 px-5">
 
             <form class="py-3" id="form-instrutor" method="POST" action="ServletAlteraDadosCadastraisInstrutor">
         

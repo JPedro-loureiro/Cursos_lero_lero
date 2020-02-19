@@ -11,6 +11,10 @@
 
     <body>
 
+        <div class="text-center py-3">
+            <h3 class="text-primary"> </h3>
+        </div>
+        
         <!-- Navbar -->
         <jsp:include page="navbar_administrador.jsp" />
 
@@ -45,17 +49,14 @@
                             <td><%=i.getLogin()%></td>
 
                             <td>
-                                <a href="ServletVerInstrutores?action=editar&id=<%=i.getId()%>">
+                                <a href="ServletVerInstrutor?action=editar&id=<%=i.getId()%>">
                                     <button type="button" class="btn btn-primary">Editar</button>
                                 </a>
 
-                                <a href="ServletVerInstrutores?action=apagar&id=<%=i.getId()%>">
+                                <a href="ServletVerInstrutor?action=apagar&id=<%=i.getId()%>">
                                     <button type="button" class="btn btn-danger">Apagar</button>
                                 </a>
                         
-                                <a href="inserir_instrutor.jsp">
-                                    <button type="button" class="btn btn-primary">Inserir</button>
-                                </a>
                             </td>
                         </tr>
                     <%}%>

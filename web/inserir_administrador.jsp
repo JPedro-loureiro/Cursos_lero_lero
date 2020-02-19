@@ -21,7 +21,7 @@
           </div>
         </div>
 
-        <form class="py-3" id="form-administrador" method="POST" action="ServletInserirAdmin">
+        <form class="py-3 px-5" id="form-administrador" method="POST" action="ServletInserirAdmin">
 
             <div class="form-group">
               <label for="Campo_cadastro">Nome</label>

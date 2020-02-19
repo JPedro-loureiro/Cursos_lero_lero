@@ -26,8 +26,7 @@
                 </div>
             </div>
 
-            <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-            <form class="py-3" id="form-aluno" method="POST" action="ServletEditarAluno">
+            <form class="py-3 px-5" id="form-aluno" method="POST" action="ServletEditarAluno">
 
                 <div class="form-group">
                     <label for="Campo_cadastro">CPF</label>

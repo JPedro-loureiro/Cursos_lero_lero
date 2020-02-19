@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="myform form py-5">
+        <div class="myform form py-5 px-5">
 
             <form class="py-3" id="form-aluno" method="POST" action="ServletAlterarDadosCadastraisAluno">
         

@@ -49,6 +49,7 @@ public class ServletLogin extends HttpServlet {
         //Session
         HttpSession session = request.getSession();
         session.setAttribute("userLogin", login);
+        session.setAttribute("tipoUsuario", tipo_usuario);
         
         //Redirect
         RequestDispatcher rd = request.getRequestDispatcher(forward);

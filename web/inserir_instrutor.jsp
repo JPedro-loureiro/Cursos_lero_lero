@@ -21,7 +21,7 @@
           </div>
         </div>
 
-        <form class="py-3" id="form-instrutor" method="POST" action="ServletInserirInstrutor">
+        <form class="py-3 px-5" id="form-instrutor" method="POST" action="ServletInserirInstrutor">
 
           <div class="form-group">
             <label for="Campo_cadastro">Nome</label>

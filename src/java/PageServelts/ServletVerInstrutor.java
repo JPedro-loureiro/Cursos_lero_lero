@@ -42,15 +42,17 @@ public class ServletVerInstrutor extends HttpServlet {
             request.setAttribute("listInstrutores", listInstrutores);
             
         } else if(action.equals("apagar")){
-            int id_instrutor = parseInt(request.getParameter("id_instrutor"));
+            int id_instrutor = parseInt(request.getParameter("id"));
             instrutorDao.deleteInstrutor(id_instrutor);
             
             //Atualizando o atributo listAlunos
             request.setAttribute("listInstrutores", instrutorDao.getAllInstrutores());
             
         } else if(action.equals("editar")){
-            int id_instrutor = parseInt(request.getParameter("id_instrutor"));
-            request.setAttribute("instrutor", instrutorDao.getInstrutorById(id_instrutor));
+            int id_instrutor = parseInt(request.getParameter("id"));
+            Instrutor instrutor = instrutorDao.getInstrutorById(id_instrutor);
+            instrutorDao.updateInstrutor(instrutor);
+            request.setAttribute("instrutor", instrutor);
             
             RequestDispatcher rd = request.getRequestDispatcher("editar_instrutor.jsp");
             rd.forward(request, response);

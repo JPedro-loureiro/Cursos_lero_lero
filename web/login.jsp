@@ -100,19 +100,12 @@
     <!-- Rodapé -->
     <jsp:include page="rodape.jsp" />
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="js/validate_traducao.js"></script>
-
-
     <script>
       $(document).ready(function() {
         $("#form-login").validate({
           rules: {
         
-            email: { required: true},
+            login: { required: true},
 
             password: { required: true, minlength: 6, maxlength: 255 },
 
@@ -121,7 +114,7 @@
           },
           messages: {
 
-            email: {required: "Obrigatório"},
+            login: {required: "Obrigatório"},
 
             password: {required: "Obrigatória", 
             minlength: "6 caracteres no mínimo", 
