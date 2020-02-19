@@ -16,7 +16,7 @@
         </div>
         
         <!-- Navbar -->
-        <jsp:include page="navbar_administrador.jsp" />
+        <jsp:include page="navbar.jsp" />
 
         <div class="container">
             <div class="text-center py-5">

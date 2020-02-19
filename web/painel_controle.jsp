@@ -8,13 +8,13 @@
 <body>
 
     <!-- Navbar -->
-    <jsp:include page="navbar_administrador.jsp" />
+    <jsp:include page="navbar.jsp" />
 
-    <div class="painel_controle_opcoes py-5 my-5">
+    <div class="painel_controle_opcoes py-5">
     
         <div class="container py-5 my-5">
     
-            <div class="text-center py-5">
+            <div class="text-center pb-5">
                 <h1 class="text-primary">Painel de controle</h1>
             </div>
     
@@ -59,14 +59,13 @@
             <div class="text-center py-5">
                 <h3 class="text-primary">Upload de imagens</h3>
             </div>
-            
-            <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+           
             <div class="row d-flex justify-content-center pb-4">
                 <div class="btn-group btn-group-lg" role="group">
             
-                    <a type="button" class="btn btn-outline-primary px-4" href="">Foto do curso (não disponível)</a>
+                    <a type="button" class="btn btn-outline-primary px-4 disabled" href="#">Foto do curso (não disponível)</a>
             
-                    <a type="button" class="btn btn-outline-primary px-4" href="">Foto do instrutor (não disponível)</a>
+                    <a type="button" class="btn btn-outline-primary px-4 disabled" href="#">Foto do instrutor (não disponível)</a>
                 </div>
             </div>
 

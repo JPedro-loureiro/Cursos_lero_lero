@@ -89,11 +89,13 @@ public class AlunoDao {
                 aluno.setEmail(rs.getString("email"));
                 aluno.setCelular(rs.getString("celular"));
                 aluno.setLogin(rs.getString("login"));
+                aluno.setSenha(rs.getString("senha"));
                 aluno.setEndereco(rs.getString("endereco"));
                 aluno.setCidade(rs.getString("cidade"));
                 aluno.setBairro(rs.getString("bairro"));
                 aluno.setCep(rs.getString("cep"));
                 aluno.setAprovado(rs.getString("aprovado"));
+                aluno.setComentario(rs.getString("comentario"));
                 return aluno;
             }
         } catch (SQLException ex) {
@@ -160,7 +162,7 @@ public class AlunoDao {
         List<Aluno> listaDeAlunos = new ArrayList<Aluno>();
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from alunos where aprovado='s'");
+            ResultSet rs = stmt.executeQuery("select * from alunos where aprovado='S'");
             while (rs.next()) {
                 Aluno aluno = new Aluno();
                 aluno.setId(parseInt(rs.getString("id")));
@@ -187,7 +189,7 @@ public class AlunoDao {
         List<Aluno> listaDeAlunos = new ArrayList<Aluno>();
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from administrador where aprovado='n'");
+            ResultSet rs = stmt.executeQuery("select * from alunos where aprovado='N'");
             while (rs.next()) {
                 Aluno aluno = new Aluno();
                 aluno.setId(parseInt(rs.getString("id")));
@@ -291,7 +293,7 @@ public class AlunoDao {
     }
     
     public void aprovarAluno(Aluno aluno){
-        aluno.setAprovado("s");
+        aluno.setAprovado("S");
         
         AlunoDao alunoDao = new AlunoDao();
         alunoDao.updateAluno(aluno);

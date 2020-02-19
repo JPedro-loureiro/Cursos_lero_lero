@@ -45,7 +45,7 @@ public class ServletInserirMatricula extends HttpServlet {
         nova_matricula.setAluno_id(parseInt(request.getParameter("alunos_id")));
         nova_matricula.setNota(parseFloat(request.getParameter("nota")));
         
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try {
             nova_matricula.setData_matricula(format.parse(request.getParameter("data_matricula")));
         } catch (ParseException ex) {

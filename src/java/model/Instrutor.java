@@ -99,6 +99,6 @@ public class Instrutor {
             
             valor_total += valor_hora * curso.getCarga_horaria();
         }
-        return valor_hora;
+        return valor_total;
     }
 }

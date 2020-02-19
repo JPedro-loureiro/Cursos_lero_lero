@@ -18,7 +18,7 @@
     <body>
 
         <!-- Navbar -->
-        <jsp:include page="navbar_administrador.jsp" />
+        <jsp:include page="navbar.jsp" />
 
         <div class="container pt-5">
             <div class="text-center py-5">
@@ -26,36 +26,34 @@
             </div>
 
             <% List<AlunoCursoTurma> matriculas = (List<AlunoCursoTurma>) request.getAttribute("matriculas");
-                        for (AlunoCursoTurma i : matriculas) { %>
+                for (AlunoCursoTurma i : matriculas) { %>
 
-                            
-                            <form class="py-3" id="form-aluno" method="POST" action="ServletAtribuirNota">
-                                <div class="form-group">
-                                    <label for="Campo_cadastro">Nota do aluno <%if (i.getNome_aluno() != null) {%><%=i.getNome_aluno()%><%}%> da turma <%=i.getId_turma()%></label>
-                                    <input type="text" name="nota" class="form-control instrutores_id" id="instrutores_id"
-                                        value="<%=i.getNota()%>">
-                                </div>
-                                
-                              
-                                <div class="form-group">
-                                    <label for="Campo_cadastro">id_aluno</label>
-                                    <input type="hidden" name="id_aluno" class="form-control instrutores_id" id="instrutores_id"
-                                        value="<%i.getId_aluno();%>">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="Campo_cadastro">id_turma</label>
-                                    <input type="hidden" name="id_turma" class="form-control instrutores_id" id="instrutores_id"
-                                           value="<%i.getId_turma();%>">
-                                </div>
-                            
-                                <div class="col-md-12 text-center mb-3">
-                                    <button type="submit" class=" btn btn-primary tx-tfm">Inserir no sistema</button>
-                                </div>
-                            </form>
-                        <%}%>
-                    </tbody>
-            </table>
+
+                    <form class="py-3" id="form-aluno" method="POST" action="ServletAtribuirNota">
+                        <div class="form-group">
+                            <label for="Campo_cadastro">Nota do aluno <%if (i.getNome_aluno() != null) {%><%=i.getNome_aluno()%><%}%> da turma <%=i.getId_turma()%></label>
+                            <input type="text" name="nota" class="form-control instrutores_id" id="instrutores_id"
+                                value="<%=i.getNota()%>">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="Campo_cadastro">id_aluno</label>
+                            <input type="hidden" name="id_aluno" class="form-control instrutores_id" id="instrutores_id"
+                                value="<%i.getId_aluno();%>">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Campo_cadastro">id_turma</label>
+                            <input type="hidden" name="id_turma" class="form-control instrutores_id" id="instrutores_id"
+                                   value="<%i.getId_turma();%>">
+                        </div>
+
+                        <div class="col-md-12 text-center mb-3">
+                            <button type="submit" class=" btn btn-primary tx-tfm">Inserir no sistema</button>
+                        </div>
+                    </form>
+                <%}%>
         </div>
 
         <!-- Rodapé -->

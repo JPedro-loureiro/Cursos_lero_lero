@@ -11,7 +11,7 @@
     <body>
 
         <!-- Navbar -->
-        <jsp:include page="navbar_administrador.jsp" />
+        <jsp:include page="navbar.jsp" />
 
         <div class="container-fluid py-5">
         

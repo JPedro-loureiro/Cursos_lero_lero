@@ -55,12 +55,6 @@
                 </div>
         
                 <div class="form-group">
-                    <label for="valor_hora">Valor/hora</label>
-                    <input type="text" class="form-control valor_hora" id="valor_hora" name="valor_hora"
-                    value="<%if (i != null) {%><%=i.getValor_hora()%><%}%>")>
-                </div>
-        
-                <div class="form-group">
                     <label for="Campo_cadastro">Login</label>
                     <input type="text" name="login" class="form-control login" id="login"
                     value="<%if (i != null) {%><%=i.getLogin()%><%}%>">

@@ -16,7 +16,7 @@
         <% Aluno i = (Aluno) request.getAttribute("aluno"); %>
 
         <div class="container pt-5">
-            <div class="text-center pt-5">
+            <div class="text-center py-5">
                 <h1 class="text-primary">Bem vindo, <%if (i != null) {%><%=i.getNome()%><%}%> </h1>
             </div>
         </div>
@@ -30,8 +30,8 @@
                 <a type="button" class="btn btn-outline-primary px-4" 
                 href="ServletMinhasNotas?id=<%=i.getId()%>">Minhas Notas</a>
                 
-                <a type="button" class="btn btn-outline-primary px-4" 
-                href="">Subir foto (não disponível)</a>
+                <a type="button" class="btn btn-outline-primary px-4 disabled" 
+                href="#">Subir foto (não disponível)</a>
             </div>
         </div>
 

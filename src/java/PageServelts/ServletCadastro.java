@@ -49,7 +49,7 @@ public class ServletCadastro extends HttpServlet {
         
         //Adiciona aluno ao DB
         AlunoDao alunoDao = new AlunoDao();
-        alunoDao.addAluno(novo_aluno);
+        alunoDao.cadastrarAluno(novo_aluno);
         
         String forward;
         forward = "area_aluno.jsp";

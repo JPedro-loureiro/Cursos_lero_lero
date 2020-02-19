@@ -15,7 +15,7 @@
     <body>
 
         <!-- Navbar -->
-        <jsp:include page="navbar_administrador.jsp" />
+        <jsp:include page="navbar.jsp" />
 
         <div class="text-center py-3">
             <h3 class="text-primary"> </h3>
@@ -25,7 +25,6 @@
             <h1 class="text-primary">Alunos por curso/turma</h1>
         </div>
 
-        <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
         <form class="py-3 px-5" id="form-alunos-curso" method="POST" action="ServletAlunoPorCurso">
 
             <div class="form-group">

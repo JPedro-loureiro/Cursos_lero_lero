@@ -11,7 +11,7 @@
 <body>
 
     <!-- Navbar -->
-    <jsp:include page="navbar_administrador.jsp" />
+    <jsp:include page="navbar.jsp" />
 
     <% Turma i = (Turma) request.getAttribute("turma"); %>
 
@@ -21,7 +21,7 @@
 
             <div class="container pt-5">
                 <div class="text-center pt-5">
-                    <h1 class="text-primary">Inserir turma</h1>
+                    <h1 class="text-primary">Editar turma</h1>
                 </div>
             </div>
 
@@ -42,7 +42,7 @@
                 <div class="form-group">
                     <label for="Campo_cadastro">Data de início</label>
                     <input type="date" class="form-control data_inicio" 
-                    id="data_inicio" name="data_inicio" value="<%if (i != null) {%><%=i.getData_inicio()%><%}%>">
+                    id="data_inicio" name="data_inicio" value="<%if (i != null) {%><%= i.getData_inicio()%><%}%>">
                 </div>
 
                 <div class="form-group">

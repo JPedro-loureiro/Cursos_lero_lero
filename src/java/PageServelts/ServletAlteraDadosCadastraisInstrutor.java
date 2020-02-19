@@ -40,7 +40,6 @@ public class ServletAlteraDadosCadastraisInstrutor extends HttpServlet {
         
         instrutor.setNome(request.getParameter("nome"));
         instrutor.setEmail(request.getParameter("email"));
-        instrutor.setValor_hora(parseInt(request.getParameter("valor_hora")));
         instrutor.setLogin(request.getParameter("login"));
         instrutor.setExperiencia(request.getParameter("experiencia"));
         

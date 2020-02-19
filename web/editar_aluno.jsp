@@ -11,9 +11,8 @@
 <body>
 
     <!-- Navbar -->
-    <jsp:include page="navbar_administrador.jsp" />
+    <jsp:include page="navbar.jsp" />
 
-    <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
     <% Aluno i = (Aluno) request.getAttribute("aluno"); %>
 
     <div class="container-fluid py-5">

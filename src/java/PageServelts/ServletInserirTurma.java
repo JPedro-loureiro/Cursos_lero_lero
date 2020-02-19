@@ -10,6 +10,7 @@ import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -42,8 +43,9 @@ public class ServletInserirTurma extends HttpServlet {
         nova_turma.setCurso_id(parseInt(request.getParameter("cursos_id")));
         nova_turma.setCarga_horaria(parseInt(request.getParameter("carga_horaria")));
         
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try {
+            String data = request.getParameter("data_inicio");
             nova_turma.setData_inicio(format.parse(request.getParameter("data_inicio")));
             nova_turma.setData_fim(format.parse(request.getParameter("data_final")));
         } catch (ParseException ex) {

@@ -45,7 +45,7 @@ public class ServletEditarTurma extends HttpServlet {
         TurmaDao turmaDao = new TurmaDao();
         turmaDao.updateTurma(nova_turma);
         
-        RequestDispatcher rd = request.getRequestDispatcher("ver_turmas.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("editar_turma.jsp");
         rd.forward(request, response);
     }
 

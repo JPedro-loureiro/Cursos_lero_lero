@@ -64,7 +64,7 @@ public class MatriculaDao {
                 matricula.setTurma_id(parseInt(rs.getString("turmas_id")));
                 matricula.setAluno_id(parseInt(rs.getString("alunos_id")));
                 
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 try {
                     matricula.setData_matricula(format.parse(rs.getString("data_matricula")));
                 } catch (ParseException ex) {
@@ -92,7 +92,7 @@ public class MatriculaDao {
                 matricula.setTurma_id(parseInt(rs.getString("turmas_id")));
                 matricula.setAluno_id(parseInt(rs.getString("alunos_id")));
                 
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 try {
                     matricula.setData_matricula(format.parse(rs.getString("data_matricula")));
                 } catch (ParseException ex) {
@@ -120,7 +120,7 @@ public List<Matricula> getMatriculasByTurma(Turma turma){
                 matricula.setTurma_id(parseInt(rs.getString("turmas_id")));
                 matricula.setAluno_id(parseInt(rs.getString("alunos_id")));
                 
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 try {
                     matricula.setData_matricula(format.parse(rs.getString("data_matricula")));
                 } catch (ParseException ex) {
@@ -147,7 +147,7 @@ public Matricula getMatriculaByTurmaEAluno(Turma turma, Aluno aluno){
                 matricula.setTurma_id(parseInt(rs.getString("turmas_id")));
                 matricula.setAluno_id(parseInt(rs.getString("alunos_id")));
                 
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 try {
                     matricula.setData_matricula(format.parse(rs.getString("data_matricula")));
                 } catch (ParseException ex) {

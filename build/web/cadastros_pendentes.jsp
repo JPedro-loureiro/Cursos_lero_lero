@@ -10,9 +10,9 @@
     <body>
 
         <!-- Navbar -->
-        <jsp:include page="navbar_administrador.jsp" />
+        <jsp:include page="navbar.jsp" />
 
-        <div class="container">
+        <div class="container pt-5">
             <div class="text-center py-5">
                 <h1 class="text-primary">Cadastros pendentes</h1>
             </div>
@@ -30,7 +30,7 @@
                     </thead>
         
                     <tbody>
-                        <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
                         <%  List<Aluno> aprovPendentes = (List<Aluno>) request.getAttribute("aprovPendentes");
                                 for (Aluno i : aprovPendentes) { %>
                         <tr>

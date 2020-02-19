@@ -46,7 +46,7 @@ public class ServletVerTurma extends HttpServlet {
             turmaDao.deleteTurma(id_turma);
             
             //Atualizando o atributo listAlunos
-            request.setAttribute("listInstrutores", turmaDao.getAllTurmas());
+            request.setAttribute("listTurmas", turmaDao.getAllTurmas());
             
         } else if(action.equals("editar")){
             int id_turma = parseInt(request.getParameter("id_turma"));

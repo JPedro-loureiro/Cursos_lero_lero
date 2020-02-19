@@ -16,9 +16,9 @@
     <body>
 
         <!-- Navbar -->
-        <jsp:include page="navbar_administrador.jsp" />
+        <jsp:include page="navbar.jsp" />
 
-        <div class="container">
+        <div class="container pt-5">
             <div class="text-center py-5">
                 <h1 class="text-primary">Notas</h1>
             </div>

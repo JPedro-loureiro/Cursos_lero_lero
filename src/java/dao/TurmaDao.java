@@ -62,7 +62,7 @@ public class TurmaDao {
                 turma.setInstrutor_id(parseInt(rs.getString("instrutores_id")));
                 turma.setCurso_id(parseInt(rs.getString("cursos_id")));
                 
-                SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 try {
                     turma.setData_inicio(format.parse(rs.getString("data_inicio")));
                     turma.setData_fim(format.parse(rs.getString("data_final")));
@@ -90,7 +90,7 @@ public class TurmaDao {
                 turma.setInstrutor_id(parseInt(rs.getString("instrutores_id")));
                 turma.setCurso_id(parseInt(rs.getString("cursos_id")));
                 
-                SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 try {
                     turma.setData_inicio(format.parse(rs.getString("data_inicio")));
                     turma.setData_fim(format.parse(rs.getString("data_final")));
@@ -119,7 +119,7 @@ public class TurmaDao {
                 turma.setInstrutor_id(parseInt(rs.getString("instrutores_id")));
                 turma.setCurso_id(parseInt(rs.getString("cursos_id")));
                 
-                SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 try {
                     turma.setData_inicio(format.parse(rs.getString("data_inicio")));
                     turma.setData_fim(format.parse(rs.getString("data_final")));
@@ -148,7 +148,7 @@ public class TurmaDao {
                 turma.setInstrutor_id(parseInt(rs.getString("instrutores_id")));
                 turma.setCurso_id(parseInt(rs.getString("cursos_id")));
                 
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 try {
                     turma.setData_inicio(format.parse(rs.getString("data_inicio")));
                     turma.setData_fim(format.parse(rs.getString("data_final")));

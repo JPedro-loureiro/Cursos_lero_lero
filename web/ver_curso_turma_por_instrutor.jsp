@@ -13,7 +13,7 @@
     <body>
 
         <!-- Navbar -->
-        <jsp:include page="navbar_administrador.jsp" />
+        <jsp:include page="navbar.jsp" />
 
         <div class="text-center py-3">
             <h3 class="text-primary"> </h3>
@@ -65,8 +65,8 @@
         </div>
 
         <div class="container">
-                
-                <h3 class="text-primary">Valor total: <%=instrutor.getValorAReceber(instrutor.getId())%></h1>
+                <%Float valor = instrutor.getValorAReceber(instrutor.getId());%>
+                <h3 class="text-primary">Valor total: <%=valor%></h1>
             
         </div>
         <%}%>

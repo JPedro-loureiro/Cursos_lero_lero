@@ -12,7 +12,7 @@
     <body>
 
         <!-- Navbar -->
-        <jsp:include page="navbar_administrador.jsp" />
+        <jsp:include page="navbar.jsp" />
 
         <div class="text-center py-3">
             <h3 class="text-primary"> </h3>
@@ -52,7 +52,7 @@
                             <td><%=i.getCarga_horaria()%></td>
 
                             <td>
-                                <a href="editar_turma.jsp">
+                                <a href="ServletVerTurma?action=editar&id_turma=<%=i.getId()%>">
                                     <button type="button" class="btn btn-primary">Editar</button>
                                 </a>
 

@@ -12,7 +12,7 @@
     <body>
 
         <!-- Navbar -->
-        <jsp:include page="navbar_administrador.jsp" />
+        <jsp:include page="navbar.jsp" />
 
         <div class="text-center py-3">
             <h3 class="text-primary"> </h3>

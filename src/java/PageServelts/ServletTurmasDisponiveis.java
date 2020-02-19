@@ -12,11 +12,16 @@ import dao.TurmasDisponiveisDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -39,6 +44,7 @@ public class ServletTurmasDisponiveis extends HttpServlet {
         
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate now = LocalDate.now();
+        Date date = Date.from(now.atStartOfDay(ZoneId.systemDefault()).toInstant());
         
         if("matricular".equals(action)){
             MatriculaDao matriculaDao = new MatriculaDao();
@@ -47,13 +53,20 @@ public class ServletTurmasDisponiveis extends HttpServlet {
             int id_turma = parseInt(request.getParameter("turma"));
             matricula.setTurma_id(id_turma);
             matricula.setNota((float) 0.0);
-            matricula.setData_matricula(parseDate(now));
+            matricula.setData_matricula(date);
             
             AlunoDao alunoDao = new AlunoDao();
-            Aluno aluno = alunoDao.getAlunoByLogin((String) request.getSession().getAttribute("user_login"));
+            Aluno aluno = alunoDao.getAlunoByLogin((String) request.getSession().getAttribute("userLogin"));
             matricula.setAluno_id(aluno.getId());
             
             matriculaDao.addMatricula(matricula);
+            
+            TurmaDao turmaDao = new TurmaDao();
+
+            List<Turma> turmas = turmaDao.getTurmasByDate(now);
+
+            TurmasDisponiveisDao tnDao = new TurmasDisponiveisDao();
+            request.setAttribute("turmas_disponiveis", tnDao.getAll(turmas));
             
         } else {
             TurmaDao turmaDao = new TurmaDao();
