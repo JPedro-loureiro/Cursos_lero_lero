@@ -39,7 +39,7 @@ public class Turma {
         return curso_id;
     }
 
-    public void setCurso_id(int curdo_id) {
+    public void setCurso_id(int curso_id) {
         this.curso_id = curso_id;
     }
 

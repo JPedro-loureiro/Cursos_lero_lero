@@ -35,7 +35,7 @@
                     <button type="submit" class=" btn btn-primary tx-tfm">Pesquisar</button>
                 </div>
             </form>
-            
+            <%if(request.getAttribute("alunos") != null){ %>
             <%=request.getAttribute("curso")%>
             <%=request.getAttribute("turma")%>
 
@@ -63,7 +63,7 @@
 
                         </tr>
                     <%}%>
-                
+                <%}%>
             </table>
         
 

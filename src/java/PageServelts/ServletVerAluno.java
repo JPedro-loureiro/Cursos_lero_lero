@@ -38,7 +38,7 @@ public class ServletVerAluno extends HttpServlet {
         String action = request.getParameter("action");
         AlunoDao alunoDao = new AlunoDao();
         
-        if(action.equals("listAlunos")){
+        if("listAlunos".equals(action)){
             List<Aluno> alunosAprovados = alunoDao.getAllAlunosAprovados();
             request.setAttribute("alunosAprovados", alunosAprovados);
             

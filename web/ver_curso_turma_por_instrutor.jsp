@@ -23,7 +23,7 @@
             <form class="py-3" id="form-alunos-curso" method="POST" action="ServletCursoPorInstrutor">
 
                 <div class="form-group">
-                    <label for="Campo_cadastro">id da turma</label>
+                    <label for="Campo_cadastro">id do instrutor</label>
                     <input type="text" name="instrutores_id" class="form-control instrutores_id" id="instrutores_id"
                         placeholder="(Obrigatório)">
                 </div>
@@ -32,7 +32,7 @@
                     <button type="submit" class=" btn btn-primary tx-tfm">Pesquisar</button>
                 </div>
             </form>
-            
+            <%if(request.getAttribute("cursos") != null){%>
             <%Instrutor instrutor = (Instrutor) request.getAttribute("instrutor");%>
             <%=instrutor.getNome()%>
 
@@ -66,7 +66,7 @@
                 <h3 class="text-primary">Valor total: <%=instrutor.getValorAReceber(instrutor.getId())%></h1>
             
         </div>
-
+        <%}%>
         <!-- Rodapé -->
         <jsp:include page="rodape.jsp" />
     </body>

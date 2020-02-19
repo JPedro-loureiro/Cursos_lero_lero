@@ -34,6 +34,10 @@ public class DataBaseUtil {
             }
             return connection;
         }
-
+    }
+    
+    public static java.sql.Date toSQLDate(java.util.Date date){
+        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+        return sqlDate;
     }
 }

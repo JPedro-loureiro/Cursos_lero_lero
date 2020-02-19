@@ -39,7 +39,7 @@ public class ServletVerTurma extends HttpServlet {
         
         if(action.equals("listTurmas")){
             List<Turma> listTurmas = turmaDao.getAllTurmas();
-            request.setAttribute("listInstrutores", listTurmas);
+            request.setAttribute("listTurmas", listTurmas);
             
         } else if(action.equals("apagar")){
             int id_turma = parseInt(request.getParameter("id_turma"));

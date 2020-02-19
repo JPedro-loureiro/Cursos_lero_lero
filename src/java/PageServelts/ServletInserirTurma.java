@@ -42,7 +42,7 @@ public class ServletInserirTurma extends HttpServlet {
         nova_turma.setCurso_id(parseInt(request.getParameter("cursos_id")));
         nova_turma.setCarga_horaria(parseInt(request.getParameter("carga_horaria")));
         
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         try {
             nova_turma.setData_inicio(format.parse(request.getParameter("data_inicio")));
             nova_turma.setData_fim(format.parse(request.getParameter("data_final")));

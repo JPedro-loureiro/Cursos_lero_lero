@@ -137,7 +137,7 @@ public class AlunoDao {
         List<Aluno> listaDeAlunos = new ArrayList<Aluno>();
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from administrador where aprovado='s'");
+            ResultSet rs = stmt.executeQuery("select * from alunos where aprovado='s'");
             while (rs.next()) {
                 Aluno aluno = new Aluno();
                 aluno.setId(parseInt(rs.getString("id")));

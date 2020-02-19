@@ -44,7 +44,7 @@ public class MatriculaDao {
                     + "values(?, ?, ?, ?)");
             preparedStatement.setInt(1, matricula.getTurma_id());
             preparedStatement.setInt(2, matricula.getAluno_id());
-            preparedStatement.setDate(3, (Date) matricula.getData_matricula());
+            preparedStatement.setDate(3, DataBaseUtil.toSQLDate(matricula.getData_matricula()));
             preparedStatement.setFloat(4, matricula.getNota());
             
             preparedStatement.executeUpdate();

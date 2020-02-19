@@ -50,7 +50,7 @@ public class CursoDao {
     public Curso getCursoById(int curso_id){
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from curso where id='" + curso_id + "'");
+            ResultSet rs = stmt.executeQuery("select * from cursos where id='" + curso_id + "'");
             if(rs.next()) {
                 Curso curso = new Curso();
                 curso.setId(parseInt(rs.getString("id")));
@@ -71,7 +71,7 @@ public class CursoDao {
         List<Curso> listaDeCursos = new ArrayList<Curso>();
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from curso");
+            ResultSet rs = stmt.executeQuery("select * from cursos");
             while (rs.next()) {
                 Curso curso = new Curso();
                 curso.setId(parseInt(rs.getString("id")));

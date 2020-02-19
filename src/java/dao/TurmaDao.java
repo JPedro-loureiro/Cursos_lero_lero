@@ -42,8 +42,8 @@ public class TurmaDao {
                     + "values(?, ?, ?, ?, ?)");
             preparedStatement.setInt(1, turma.getInstrutor_id());
             preparedStatement.setInt(2, turma.getCurso_id());
-            preparedStatement.setDate(3, (Date) turma.getData_inicio());
-            preparedStatement.setDate(4, (Date) turma.getData_fim());
+            preparedStatement.setDate(3, DataBaseUtil.toSQLDate(turma.getData_inicio()));
+            preparedStatement.setDate(4, DataBaseUtil.toSQLDate(turma.getData_fim()));
             preparedStatement.setInt(5, turma.getCarga_horaria());
             
             preparedStatement.executeUpdate();
@@ -59,10 +59,10 @@ public class TurmaDao {
             if(rs.next()) {
                 Turma turma = new Turma();
                 turma.setId(parseInt(rs.getString("id")));
-                turma.setInstrutor_id(parseInt(rs.getString("intrutores_id")));
+                turma.setInstrutor_id(parseInt(rs.getString("instrutores_id")));
                 turma.setCurso_id(parseInt(rs.getString("cursos_id")));
                 
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 try {
                     turma.setData_inicio(format.parse(rs.getString("data_inicio")));
                     turma.setData_fim(format.parse(rs.getString("data_final")));
@@ -87,10 +87,10 @@ public class TurmaDao {
             while (rs.next()) {
                 Turma turma = new Turma();
                 turma.setId(parseInt(rs.getString("id")));
-                turma.setInstrutor_id(parseInt(rs.getString("intrutores_id")));
+                turma.setInstrutor_id(parseInt(rs.getString("instrutores_id")));
                 turma.setCurso_id(parseInt(rs.getString("cursos_id")));
                 
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 try {
                     turma.setData_inicio(format.parse(rs.getString("data_inicio")));
                     turma.setData_fim(format.parse(rs.getString("data_final")));
@@ -116,10 +116,10 @@ public class TurmaDao {
             while (rs.next()) {
                 Turma turma = new Turma();
                 turma.setId(parseInt(rs.getString("id")));
-                turma.setInstrutor_id(parseInt(rs.getString("intrutores_id")));
+                turma.setInstrutor_id(parseInt(rs.getString("instrutores_id")));
                 turma.setCurso_id(parseInt(rs.getString("cursos_id")));
                 
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 try {
                     turma.setData_inicio(format.parse(rs.getString("data_inicio")));
                     turma.setData_fim(format.parse(rs.getString("data_final")));
@@ -145,7 +145,7 @@ public class TurmaDao {
             while (rs.next()) {
                 Turma turma = new Turma();
                 turma.setId(parseInt(rs.getString("id")));
-                turma.setInstrutor_id(parseInt(rs.getString("intrutores_id")));
+                turma.setInstrutor_id(parseInt(rs.getString("instrutores_id")));
                 turma.setCurso_id(parseInt(rs.getString("cursos_id")));
                 
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
