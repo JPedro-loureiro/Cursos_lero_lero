@@ -99,6 +99,7 @@ public class FilterLogin implements Filter {
      * @exception IOException if an input/output error occurs
      * @exception ServletException if a servlet error occurs
      */
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
@@ -108,26 +109,28 @@ public class FilterLogin implements Filter {
         String tipo_usuario = request.getParameter("dropdown_tipo_usuario");
         
         HttpServletResponse rp = (HttpServletResponse) response;
-        if(tipo_usuario == "adm"){
+        if("adm".equals(tipo_usuario)){
             AdministradorDao adminDao = new AdministradorDao();
             
-            if(!adminDao.checkAdminLogin(login, senha)){
+            /*if(!adminDao.checkAdminLogin(login, senha)){
                 rp.sendRedirect("login.jsp");
-            }
+            }*/
             
-        } else if(tipo_usuario == "inst"){
+        } else if("inst".equals(tipo_usuario)){
             InstrutorDao instrutorDao = new InstrutorDao();
             
             if(!instrutorDao.checkInstrutorLogin(login, senha)){
                 rp.sendRedirect("login.jsp");
             }
             
-        } else if(tipo_usuario == "aluno"){
+        } else if("aluno".equals(tipo_usuario)){
             AlunoDao alunoDao = new AlunoDao();
             
             if(!alunoDao.checkAlunoLogin(login, senha)){
                 rp.sendRedirect("login.jsp");
             }
+            
+            
             
         } else {
             rp.sendRedirect("login.jsp");

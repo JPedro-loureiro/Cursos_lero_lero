@@ -40,7 +40,7 @@ public class ServletTurmasDisponiveis extends HttpServlet {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate now = LocalDate.now();
         
-        if(action.equals("matricular")){
+        if("matricular".equals(action)){
             MatriculaDao matriculaDao = new MatriculaDao();
             Matricula matricula = new Matricula();
             

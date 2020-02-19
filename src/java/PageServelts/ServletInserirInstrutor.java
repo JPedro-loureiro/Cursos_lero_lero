@@ -8,6 +8,7 @@ package PageServelts;
 import dao.InstrutorDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.Integer.parseInt;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,7 +47,7 @@ public class ServletInserirInstrutor extends HttpServlet {
         InstrutorDao instrutorDao = new InstrutorDao();
         instrutorDao.addInstrutor(novo_instrutor);
         
-        RequestDispatcher rd = request.getRequestDispatcher("ver_instrutor.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("inserir_instrutor.jsp");
         rd.forward(request, response);
     }
 
@@ -59,9 +60,5 @@ public class ServletInserirInstrutor extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private int parseInt(String parameter) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

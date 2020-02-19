@@ -51,8 +51,7 @@
                     </thead>
 
                     
-                        <!-- FAZER DIREITINHO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-                        <!-- <% List<AlunoCursoTurma> alunos = (List<AlunoCursoTurma>) request.getAttribute("alunos");
+                        <% List<AlunoCursoTurma> alunos = (List<AlunoCursoTurma>) request.getAttribute("alunos");
                                 for (AlunoCursoTurma i : alunos) { %>
                         <tr>
                             <th scope="row">
@@ -63,7 +62,7 @@
                             <td><%=i.getNota()%></td>
 
                         </tr>
-                    <%}%> -->
+                    <%}%>
                 
             </table>
         

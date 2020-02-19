@@ -32,7 +32,7 @@ public class AdministradorDao {
     public void addAdminstrador(Administrador administrador){
         try{
             PreparedStatement preparedStatement = this.connection.prepareStatement("insert into "
-                    + "administrador(nome, login, senha) values(?, ?, ?, ?)");
+                    + "administrador(nome, login, senha) values(?, ?, ?)");
             preparedStatement.setString(1, administrador.getNome());
             preparedStatement.setString(2, administrador.getLogin());
             preparedStatement.setString(3, administrador.getSenha());
@@ -97,7 +97,7 @@ public class AdministradorDao {
             
             String correctPassword;
             while(rs.next()){
-                 correctPassword = rs.getString("login");
+                 correctPassword = rs.getString("senha");
                 
                 if(correctPassword.equals(senha)){
                 return true;

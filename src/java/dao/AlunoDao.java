@@ -89,6 +89,7 @@ public class AlunoDao {
                 aluno.setCpf(rs.getString("cpf"));
                 aluno.setNome(rs.getString("nome"));
                 aluno.setEmail(rs.getString("email"));
+                aluno.setSenha(rs.getString("senha"));
                 aluno.setCelular(rs.getString("celular"));
                 aluno.setLogin(rs.getString("login"));
                 aluno.setEndereco(rs.getString("endereco"));
@@ -231,10 +232,10 @@ public class AlunoDao {
             
             String correctPassword;
             while(rs.next()){
-                 correctPassword = rs.getString("login");
+                 correctPassword = rs.getString("senha");
                 
                 if(correctPassword.equals(senha)){
-                return true;
+                    return true;
                 }
             }
             

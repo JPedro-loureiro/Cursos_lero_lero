@@ -55,8 +55,8 @@
               <form method="POST" id="form-login" action="ServletLogin">
 
                 <div class="form-group">
-                  <label for="Campo_login">Email</label>
-                  <input type="email" name="email"  class="form-control" id="email">
+                  <label for="Campo_login">Login</label>
+                  <input type="text" name="login"  class="form-control" id="login">
                 </div>
 
                 <div class="form-group">

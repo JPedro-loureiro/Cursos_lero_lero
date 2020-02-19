@@ -9,12 +9,12 @@
         <filter-class>Filter.FilterLogin</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>FilterLogin</filter-name>
-        <servlet-name>ServletLogin</servlet-name>
-    </filter-mapping>
-    <filter-mapping>
         <filter-name>FilterCadastro</filter-name>
         <servlet-name>ServletCadastro</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FilterLogin</filter-name>
+        <servlet-name>ServletLogin</servlet-name>
     </filter-mapping>
     <servlet>
         <servlet-name>ServletInserirAdmin</servlet-name>

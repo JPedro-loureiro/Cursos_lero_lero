@@ -149,7 +149,7 @@ public class InstrutorDao {
             
             String correctPassword;
             while(rs.next()){
-                 correctPassword = rs.getString("login");
+                 correctPassword = rs.getString("senha");
                 
                 if(correctPassword.equals(senha)){
                 return true;

@@ -26,19 +26,21 @@ public class ServletAlterarDadosCadastraisAluno extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Aluno aluno = new Aluno();
+        //Get aluno
+        AlunoDao alunoDao = new AlunoDao();
+        String login = (String) request.getSession().getAttribute("userLogin");
+        Aluno aluno = alunoDao.getAlunoByLogin(login);
+        
         aluno.setCpf(request.getParameter("cpf"));
         aluno.setNome(request.getParameter("nome"));
         aluno.setEmail(request.getParameter("email"));
         aluno.setCelular(request.getParameter("celular"));
         aluno.setLogin(request.getParameter("login"));
-        aluno.setSenha(request.getParameter("password"));
         aluno.setEndereco(request.getParameter("endereco"));
         aluno.setBairro(request.getParameter("bairro"));
         aluno.setCidade(request.getParameter("cidade"));
         aluno.setCep(request.getParameter("cep"));
-        
-        AlunoDao alunoDao = new AlunoDao();
+
         alunoDao.updateAluno(aluno);
         
         request.setAttribute("aluno", aluno);

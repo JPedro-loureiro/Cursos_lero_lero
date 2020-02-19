@@ -9,6 +9,7 @@ import dao.CursoDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.Float.parseFloat;
+import static java.lang.Integer.parseInt;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,7 +47,7 @@ public class ServletInserirCurso extends HttpServlet {
         CursoDao cursoDao = new CursoDao();
         cursoDao.addCurso(novo_curso);
         
-        RequestDispatcher rd = request.getRequestDispatcher("ver_cursos.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("inserir_curso.jsp");
         rd.forward(request, response);
     }
 
@@ -59,9 +60,5 @@ public class ServletInserirCurso extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private int parseInt(String parameter) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

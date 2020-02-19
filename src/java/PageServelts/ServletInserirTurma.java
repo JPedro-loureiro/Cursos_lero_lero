@@ -53,7 +53,7 @@ public class ServletInserirTurma extends HttpServlet {
         TurmaDao turmaDao = new TurmaDao();
         turmaDao.addTurma(nova_turma);
         
-        RequestDispatcher rd = request.getRequestDispatcher("ver_turmas.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("inserir_turma.jsp");
         rd.forward(request, response);
     }
 

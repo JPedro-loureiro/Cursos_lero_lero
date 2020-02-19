@@ -46,15 +46,15 @@
             <form class="py-3" id="form-aluno" method="POST" action="ServletAlterarDadosCadastraisAluno">
         
                 <div class="form-group">
-                    <label for="Campo_cadastro">CPF</label>
-                    <input type="text" name="cpf" class="form-control cpf" id="cpf""
-                     value="<%if (i != null) {%><%=i.getLogin()%><%}%>">
-                </div>
-        
-                <div class="form-group">
                     <label for="Campo_cadastro">Nome</label>
                     <input type="text" name="nome" class="form-control nome" id="nome"
                     value="<%if (i != null) {%><%=i.getNome()%><%}%>">
+                </div>
+                
+                <div class="form-group">
+                    <label for="Campo_cadastro">CPF</label>
+                    <input type="text" name="cpf" class="form-control cpf" id="cpf""
+                     value="<%if (i != null) {%><%=i.getCpf()%><%}%>">
                 </div>
         
                 <div class="form-group">

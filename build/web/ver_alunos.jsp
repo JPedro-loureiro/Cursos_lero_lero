@@ -55,7 +55,7 @@
                             <td><%=i.getCep()%></td>
 
                             <td>
-                                <a href="ServletVerAluno?action=apagar&id_aluno=<%=i.getId()%>">
+                                <a href="ServletVerAluno?action=editar&id_aluno=<%=i.getId()%>">
                                     <button type="button" class="btn btn-primary">Editar</button>
                                 </a>
 
